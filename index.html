@@ -1,0 +1,1058 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>萩・津和野 旅のしおり（スマートフォン版）</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Shippori+Mincho:wght@500;700&display=swap");
+    body { font-family: "BIZ UDPGothic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+    .font-serif-mincho { font-family: "Shippori Mincho", serif; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen pb-24">
+  <!-- 最大幅コンテナ（スマホ最適化） -->
+  <div class="max-w-md mx-auto bg-white min-h-screen shadow-lg flex flex-col relative">
+    <!-- ==================== ヘッダー ==================== -->
+    <header class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white p-4 sticky top-0 z-40 shadow-md">
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] tracking-wider bg-blue-700/80 text-blue-100 px-2 py-0.5 rounded font-bold uppercase">1泊2日 プレミアム旅</span>
+            <span class="text-[10px] bg-amber-500 text-amber-950 font-bold px-1.5 py-0.5 rounded">シニア男性3名様</span>
+          </div>
+          <h1 class="text-lg font-bold mt-1 text-white flex items-center gap-1.5">
+            <span>萩・津和野 歴史と情緒の旅</span>
+          </h1>
+          <p class="text-xs text-blue-200 mt-0.5">2026年10月30日(金) 〜 10月31日(土)</p>
+        </div>
+      </div>
+      <!-- 集合・解散インフォメーション -->
+      <div class="mt-2.5 pt-2 border-t border-blue-800/60 text-[11px] text-blue-100 flex items-center justify-between">
+        <div><strong class="text-amber-300">集合:</strong> 10/30 新山口 10:25</div>
+        <div><strong class="text-amber-300">解散:</strong> 10/31 新山口 18:10</div>
+      </div>
+    </header>
+
+    <!-- ==================== ナビゲーション タブバー ==================== -->
+    <nav class="sticky top-[86px] z-30 bg-white border-b border-slate-200 shadow-sm">
+      <div class="flex overflow-x-auto hide-scrollbar text-xs font-bold text-slate-500">
+        <button onclick="switchTab('day1')" id="nav-btn-day1" class="flex-none px-3.5 py-3 text-center border-b-2 border-blue-700 text-blue-700 transition">
+          🏯 Day 1 萩
+        </button>
+        <button onclick="switchTab('day2')" id="nav-btn-day2" class="flex-none px-3.5 py-3 text-center border-b-2 border-transparent hover:text-slate-700 transition">
+          🚂 Day 2 津和野
+        </button>
+        <button onclick="switchTab('maps')" id="nav-btn-maps" class="flex-none px-3.5 py-3 text-center border-b-2 border-transparent hover:text-slate-700 transition">
+          🗺️ ガイドマップ
+        </button>
+        <button onclick="switchTab('figures')" id="nav-btn-figures" class="flex-none px-3.5 py-3 text-center border-b-2 border-transparent hover:text-slate-700 transition">
+          📜 歴史偉人録
+        </button>
+        <button onclick="switchTab('info')" id="nav-btn-info" class="flex-none px-3.5 py-3 text-center border-b-2 border-transparent hover:text-slate-700 transition">
+          🎒 持物・便利帳
+        </button>
+      </div>
+    </nav>
+
+    <!-- ==================== メインコンテンツエリア ==================== -->
+    <main class="flex-1 p-3.5 space-y-4">      <!-- ==================== TAB 1 : Day 1 萩エリア ==================== -->
+      <section id="tab-day1" class="tab-content active space-y-3.5">
+        <!-- 天候プラン切り替えスイッチ -->
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 p-2.5 rounded-xl flex items-center justify-between shadow-sm">
+          <div class="flex items-center gap-1.5 text-xs font-bold text-blue-900">
+            <span class="text-base">⛅</span>
+            <span>天候コース切り替え:</span>
+          </div>
+          <div class="flex bg-white rounded-lg p-0.5 border border-blue-200 shadow-inner">
+            <button onclick="togglePlan('day1', 'planA')" id="day1-btn-planA" class="px-3 py-1 rounded-md text-xs font-bold bg-blue-700 text-white shadow-sm transition">
+              ☀️ 晴天 (プランA)
+            </button>
+            <button onclick="togglePlan('day1', 'planB')" id="day1-btn-planB" class="px-3 py-1 rounded-md text-xs font-bold text-slate-600 hover:text-slate-900 transition">
+              ☔ 雨天 (プランB)
+            </button>
+          </div>
+        </div>
+
+        <!-- 中心街 徒歩数分圏内の注記カード -->
+        <div class="bg-amber-50 border border-amber-200 rounded-lg p-2.5 text-[11px] text-amber-900 flex items-start gap-2">
+          <span class="text-base leading-none">💡</span>
+          <div>
+            <strong>萩中心街のポイント:</strong> 「ホテル長谷川」「みなと食堂 ととと」「居魚屋 おもしろき」は、萩バスセンター北側の中心街（田町・唐樋町・熊谷町）に<strong>徒歩数分圏内（ほぼ同じ場所）</strong>で集まっています！
+          </div>
+        </div>
+
+        <!-- ========== Day 1 晴天プランA リスト ========== -->
+        <div id="day1-planA-list" class="space-y-3">
+          <!-- スポット0: 新山口集合 ＆ 直行バス -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">10:25〜11:40</span>
+              <span class="text-slate-500 bg-slate-100 px-2 py-0.5 rounded">集合 ＆ 直行バス</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">新山口駅 新幹線改札前 集合 ➔ スーパーはぎ号</h3>
+            <p class="text-xs text-slate-600 mt-1">
+              各自手配の新幹線（新大阪8:33発のぞみ等）で新山口駅に10:25までに集合。10:40発直行バス「スーパーはぎ号」で萩バスセンターへ快適直行（約60分）。
+            </p>
+            <div class="mt-2 text-[11px] text-slate-500 bg-slate-50 p-2 rounded">
+              👟 <strong>シニア配慮:</strong> 新山口駅集合後は手荷物を持って直行バスに乗車。座席指定不要・周遊パス対象。
+            </div>
+          </div>
+
+          <!-- スポット1: 荷物預け -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">11:40〜12:00</span>
+              <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-medium">荷物預け</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">ビジネスホテル長谷川（手荷物預け）</h3>
+            <p class="text-xs text-slate-600 mt-1">
+              萩バスセンター到着後、北へ徒歩約3分の宿へ。重い宿泊手荷物をフロントに預け、身軽になって城下町へ出発！
+            </p>
+            <div class="mt-2 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+              <a href="tel:0838253311" class="text-blue-600 font-bold hover:underline flex items-center gap-1">
+                📞 0838-25-3311
+              </a>
+              <a href="https://maps.google.com/?q=ビジネスホテル長谷川+萩市" target="_blank" class="text-slate-500 hover:text-blue-600">
+                📍 地図で確認 ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- スポット2: 昼食 ととと -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">12:15〜13:15 (60分)</span>
+              <span class="text-amber-800 bg-amber-100 px-2 py-0.5 rounded font-bold">昼食・地魚海鮮</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">① <a href="https://www.hagishi.com/chosyu-kaisen/mabushi/" target="_blank" class="text-blue-700 hover:underline">みなと食堂 ととと</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              萩港・浜崎地区入口の海鮮食堂。平政や瀬つきアジ、サザエなど日本海の新鮮な魚介を惜しみなく盛った名物海鮮丼や定食が絶品！
+            </p>
+            <div class="mt-2 text-[11px] text-amber-900 bg-amber-50/70 p-2 rounded">
+              🚶 <strong>移動:</strong> ホテル長谷川から北へ徒歩数分（またはタクシー約5分）。テーブル席でゆったり。
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500">予算目安: 約1,500〜2,200円</span>
+              <a href="https://maps.google.com/?q=みなと食堂ととと+萩市" target="_blank" class="text-blue-600 font-bold hover:underline">
+                📍 Googleマップ ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- スポット3: 萩城下町 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="relative -mx-3.5 -mt-3.5 mb-2.5 h-36 bg-slate-100 overflow-hidden">
+              <img src="images/hagi_castle_town.jpg" alt="萩城下町" class="w-full h-full object-cover">
+              <span class="absolute top-2 right-2 bg-blue-900/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                世界遺産
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">13:30〜14:40 (70分)</span>
+              <span class="text-blue-700 bg-blue-100 px-2 py-0.5 rounded font-bold">世界文化遺産</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">② <a href="https://www.city.hagi.lg.jp/site/sekaiisan/" target="_blank" class="text-blue-700 hover:underline">世界遺産 萩城下町散策</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              江戸時代の町割りがほぼ現存する奇跡の町。白壁となまこ壁、夏みかんがのぞく土塀の武家屋敷通り。<a href="https://www.hagishi.com/search/detail.php?d=100061" target="_blank" class="text-blue-600 underline">菊屋家住宅</a>、<a href="https://www.hagishi.com/oidemase/greatman/kidotakayoshi/" target="_blank" class="text-blue-600 underline">木戸孝允旧宅</a>、<a href="https://www.hagishi.com/search/detail.php?d=100001" target="_blank" class="text-blue-600 underline">高杉晋作誕生地</a>、<a href="https://www.hagishi.com/search/detail.php?d=100044" target="_blank" class="text-blue-600 underline">鍵曲</a>などを巡ります。
+            </p>
+            <div class="mt-2 text-[11px] text-emerald-900 bg-emerald-50 p-2 rounded">
+              👟 <strong>シニア配慮:</strong> 全面平坦で歩きやすい。各所にベンチや茶屋あり。
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500">高杉誕生地から城跡へ約20分</span>
+              <a href="https://maps.google.com/?q=萩城下町+菊屋家住宅" target="_blank" class="text-blue-600 font-bold hover:underline">
+                📍 Googleマップ ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- スポット4: 萩城天守閣跡 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="relative -mx-3.5 -mt-3.5 mb-2.5 h-36 bg-slate-100 overflow-hidden">
+              <img src="images/hagi_castle_ruins.jpg" alt="萩城天守閣跡・指月公園" class="w-full h-full object-cover">
+              <span class="absolute top-2 right-2 bg-purple-900/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                国指定史跡・100名城
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">14:40〜15:40 (60分)</span>
+              <span class="text-purple-700 bg-purple-100 px-2 py-0.5 rounded font-bold">日本100名城</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">③ <a href="https://www.hagishi.com/search/detail.php?d=100050" target="_blank" class="text-blue-700 hover:underline">萩城天守閣跡（指月公園）</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              毛利輝元公が慶長9年（1604年）に築城した萩城（指月城）の遺構。巨石の天守台石垣とお堀、旧厚狭毛利家萩屋敷長屋が残ります。高杉晋作誕生地から北西へ約20分、菊ヶ浜に隣接。
+            </p>
+            <div class="mt-2 text-[11px] text-purple-900 bg-purple-50 p-2 rounded">
+              🏯 <strong>スタンプ ＆ シニア配慮:</strong> 入園口で日本100名城スタンプを押印。園内は平坦な舗装路で段差が少なく安心。無料AR/VRで往時の五層天守閣を再現体験！
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500">入園料: 大人220円</span>
+              <a href="https://maps.google.com/?q=萩城跡指月公園" target="_blank" class="text-blue-600 font-bold hover:underline">
+                📍 Googleマップ ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- スポット5: 松陰神社 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">15:45〜16:40 (55分)</span>
+              <span class="text-blue-700 bg-blue-100 px-2 py-0.5 rounded font-bold">世界遺産・至誠の道</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">④ <a href="https://showin-jinja.or.jp/" target="_blank" class="text-blue-700 hover:underline">松陰神社・松下村塾</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              吉田松陰先生を祀る神社。わずか8畳と10畳半の木造平屋「松下村塾」から日本の近代化を担った逸材たちが巣立ちました。<a href="https://showin-jinja.or.jp/guide-map/shiseikan/" target="_blank" class="text-blue-600 underline">至誠館（宝物殿）</a>では直筆書状を展示。
+            </p>
+            <div class="mt-2 text-[11px] text-slate-600 bg-slate-50 p-2 rounded">
+              🚌 <strong>移動・調整:</strong> 城跡より「まぁーるバス」東回りで約15分。脚力や進行に応じて至誠館見学に絞るなど柔軟に短縮可能。
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500">境内参拝無料</span>
+              <a href="https://maps.google.com/?q=松陰神社+萩市" target="_blank" class="text-blue-600 font-bold hover:underline">
+                📍 Googleマップ ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- スポット6: 菊ヶ浜 夕景 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="relative -mx-3.5 -mt-3.5 mb-2.5 h-36 bg-slate-100 overflow-hidden">
+              <img src="images/kikugahama_sunset.jpg" alt="菊ヶ浜の夕日" class="w-full h-full object-cover">
+              <span class="absolute top-2 right-2 bg-amber-600/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                日本の渚百選・夕景
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">16:45〜17:30 (45分)</span>
+              <span class="text-amber-700 bg-amber-100 px-2 py-0.5 rounded font-bold">絶景・日没鑑賞</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">⑤ <a href="https://ja.wikipedia.org/wiki/%E8%8F%8A%E3%83%B6%E6%B5%9C" target="_blank" class="text-blue-700 hover:underline">菊ヶ浜（夕景鑑賞）</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              萩城跡のすぐ東隣に広がる白砂青松の海岸。指月山を背景に日本海へ沈む夕日が海岸線を黄金色に染め上げる至高のひととき（日没目安 17:20頃）。
+            </p>
+            <div class="mt-2 text-[11px] text-amber-950 bg-amber-50 p-2 rounded">
+              🪑 <strong>シニア配慮:</strong> 砂浜沿いに木製ベンチが整備されており、腰を下ろして夕日を静かに鑑賞できます。
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500">萩城跡から徒歩3分</span>
+              <a href="https://maps.google.com/?q=菊ヶ浜+萩市" target="_blank" class="text-blue-600 font-bold hover:underline">
+                📍 Googleマップ ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- スポット7: 夕食 おもしろき -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-red-700 bg-red-50 px-2 py-0.5 rounded">18:00〜20:00 (120分)</span>
+              <span class="text-red-700 bg-red-100 px-2 py-0.5 rounded font-bold">夕食【予約確定】</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">⑥ <a href="https://hagi-omoshiroki.com/" target="_blank" class="text-blue-700 hover:underline">居魚屋 おもしろき（創作会席）</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              高杉晋作の辞世の句から命名された地産地消の名店。長門和牛ステーキ、萩近海の鮮魚盛り、地酒「東洋美人」などを堪能。
+            </p>
+            <div class="mt-2 text-[11px] text-red-950 bg-red-50 p-2 rounded">
+              🍶 <strong>安心ポイント:</strong> 予約確定済み（個室掘りごたつ）。菊ヶ浜からタクシー約5分。食後は宿泊先「ホテル長谷川」まで徒歩約5分の安心近距離！
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <a href="tel:0838215511" class="text-blue-600 font-bold hover:underline">📞 店舗へ電話</a>
+              <a href="https://maps.google.com/?q=居魚屋おもしろき+萩市" target="_blank" class="text-blue-600 font-bold hover:underline">
+                📍 Googleマップ ➔
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== Day 1 雨天プランB リスト ========== -->
+        <div id="day1-planB-list" class="space-y-3 hidden">
+          <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-2.5 text-xs text-indigo-900">
+            ☔ <strong>雨天プランBの特徴:</strong> 屋内施設（明倫学舎、至誠館、カフェ）を中心に組み立て、雨でも濡れずに快適かつ深く萩の歴史を満喫できます。
+          </div>
+
+          <!-- 雨B スポット1: 明倫学舎 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">13:30〜14:30 (60分)</span>
+              <span class="text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded font-bold">全天候型・木造校舎</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900"><a href="https://www.city.hagi.lg.jp/site/meiringakusha/" target="_blank" class="text-blue-700 hover:underline">萩・明倫学舎（旧明倫館）</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              日本三大藩校・明倫館跡地に建つ日本最大級の木造校舎群。雨でも傘を差さずに本館・2号館を快適見学。「幕末ミュージアム」や世界遺産ビジターセンターを完備。
+            </p>
+            <div class="mt-2 text-[11px] text-emerald-900 bg-emerald-50 p-2 rounded">
+              ☕ <strong>シニア配慮:</strong> 館内バリアフリー・エレベーター完備。敷地内カフェ「ホトリ」で珈琲休憩も可能。
+            </div>
+          </div>
+
+          <!-- 雨B スポット2: 萩城跡 雨天散策 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">14:40〜15:30 (50分)</span>
+              <span class="text-purple-700 bg-purple-100 px-2 py-0.5 rounded font-bold">史跡・雨煙の風情</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900"><a href="https://www.hagishi.com/search/detail.php?d=100050" target="_blank" class="text-blue-700 hover:underline">萩城天守閣跡・指月公園（平坦散策）</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              雨天でも園内は平坦な舗装路が整っており、傘を差しながら雨煙に煙る天守台石垣とお堀の幽玄な風情を静かに鑑賞できます。
+            </p>
+          </div>
+
+          <!-- 雨B スポット3: 至誠館 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">15:45〜16:35 (50分)</span>
+              <span class="text-blue-700 bg-blue-100 px-2 py-0.5 rounded font-bold">全天候型宝物殿</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900"><a href="https://showin-jinja.or.jp/guide-map/shiseikan/" target="_blank" class="text-blue-700 hover:underline">松陰神社「至誠館（宝物殿）」</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              全館空調の近代的な展示室で、吉田松陰先生の直筆手紙や遺品、名言の数々をじっくり鑑賞。雨音を気にせず歴史の息吹に浸れます。
+            </p>
+          </div>
+
+          <!-- 雨B スポット4: カフェ休憩 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">16:45〜17:30 (45分)</span>
+              <span class="text-amber-700 bg-amber-100 px-2 py-0.5 rounded font-bold">雨宿り・珈琲</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">海辺カフェ または 明倫館カフェ休憩</h3>
+            <p class="text-xs text-slate-600 mt-1">
+              萩焼の温もりある器で淹れたての珈琲を味わいながら、シニア3名で談笑。夕食「割烹おもしろき」へ向けて無理なく足を休めます。
+            </p>
+          </div>
+        </div>
+      </section>      <!-- ==================== TAB 2 : Day 2 津和野エリア ==================== -->
+      <section id="tab-day2" class="tab-content space-y-3.5">
+        <!-- 天候プラン切り替えスイッチ -->
+        <div class="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200/80 p-2.5 rounded-xl flex items-center justify-between shadow-sm">
+          <div class="flex items-center gap-1.5 text-xs font-bold text-emerald-950">
+            <span class="text-base">⛅</span>
+            <span>天候コース切り替え:</span>
+          </div>
+          <div class="flex bg-white rounded-lg p-0.5 border border-emerald-200 shadow-inner">
+            <button onclick="togglePlan('day2', 'planA')" id="day2-btn-planA" class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-700 text-white shadow-sm transition">
+              ☀️ 晴天 (プランA)
+            </button>
+            <button onclick="togglePlan('day2', 'planB')" id="day2-btn-planB" class="px-3 py-1 rounded-md text-xs font-bold text-slate-600 hover:text-slate-900 transition">
+              ☔ 雨天 (プランB)
+            </button>
+          </div>
+        </div>
+
+        <!-- 城跡スタンプ ＆ 本町通り復活のポイントバナー -->
+        <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-2.5 text-[11px] text-indigo-950 flex items-start gap-2">
+          <span class="text-base leading-none">🏯</span>
+          <div>
+            <strong>津和野城跡 ＆ 本町通りの重要方針:</strong> 津和野城は山麓駅窓口での<strong>日本100名城スタンプ押印が目的（リフト不乗・登山なし）</strong>です。その分の時間で<strong>「本町通り単独散策（源氏巻・ざら茶）」が完全復活！</strong> 各自のペースで自由にお買い物を楽しめます。
+          </div>
+        </div>
+
+        <!-- ========== Day 2 晴天プランA リスト ========== -->
+        <div id="day2-planA-list" class="space-y-3">
+          <!-- スポット0: 防長バス移動 ＆ コインロッカー -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">09:00〜10:45</span>
+              <span class="text-slate-500 bg-slate-100 px-2 py-0.5 rounded">防長バス・約105分</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">萩バスセンター ➔ 津和野駅前（手荷物預け）</h3>
+            <p class="text-xs text-slate-600 mt-1">
+              朝08:40にホテル発。防長路線バスで津和野へ直行（車窓の山里風景を満喫）。津和野駅到着後、コインロッカーに宿泊荷物を預けて手ぶら散策開始！
+            </p>
+            <div class="mt-2 text-[11px] text-emerald-900 bg-emerald-50 p-2 rounded">
+              🎫 <strong>周遊パス対象:</strong> デジタルチケット「おでかけぶらりパス」対象区間。降車時にスマホ画面を提示するだけ。
+            </div>
+          </div>
+
+          <!-- スポット1: 殿町通り -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="relative -mx-3.5 -mt-3.5 mb-2.5 h-36 bg-slate-100 overflow-hidden">
+              <img src="images/tsuwano_tonomachi_carp.jpg" alt="殿町通りと錦鯉" class="w-full h-full object-cover">
+              <span class="absolute top-2 right-2 bg-emerald-800/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                美観地区・散策
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">11:00〜12:00 (60分)</span>
+              <span class="text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">武家屋敷・錦鯉</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">① <a href="https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%92%8C%E9%87%8E%E7%94%BA" target="_blank" class="text-blue-700 hover:underline">殿町通り（とのまちとおり）</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              白壁となまこ壁が続く山陰の小京都。掘割を優雅に泳ぐ約400匹のカラフルな錦鯉。藩校養老館跡や、珍しい畳敷きの<a href="https://ja.wikipedia.org/wiki/%E4%B9%99%E5%A5%B3%E5%B3%A0%E3%83%9E%E3%83%AA%E3%82%A2%E8%81%96%E5%A0%82" target="_blank" class="text-blue-600 underline">津和野カトリック教会</a>（昭和6年建築）を見学。
+            </p>
+            <div class="mt-2 text-[11px] text-amber-950 bg-amber-50 p-2 rounded">
+              🐟 <strong>お楽しみ ＆ シニア配慮:</strong> 掘割沿いのガチャガチャ（100円）で鯉のエサやり体験。全面平坦な道で木製ベンチも多数。
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500">津和野駅から南へ徒歩8分</span>
+              <a href="https://maps.google.com/?q=殿町通り+津和野" target="_blank" class="text-blue-600 font-bold hover:underline">
+                📍 Googleマップ ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- スポット2: うずめ飯 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="relative -mx-3.5 -mt-3.5 mb-2.5 h-36 bg-slate-100 overflow-hidden">
+              <img src="images/tsuwano_uzumemeshi.jpg" alt="郷土料理 うずめ飯" class="w-full h-full object-cover">
+              <span class="absolute top-2 right-2 bg-amber-700/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                日本五大名飯
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">12:15〜13:15 (60分)</span>
+              <span class="text-amber-700 bg-amber-100 px-2 py-0.5 rounded font-bold">昼食・伝統郷土料理</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">② <a href="https://saranoki-tsuwano.net/" target="_blank" class="text-blue-700 hover:underline">郷土料理 うずめ飯（沙羅の木 松韻亭）</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              日本五大名飯の一つ。ご飯の下に鯛、椎茸、豆腐、山菜などの贅沢な具材を「埋め」た歴史的伝統食。熱い和風出汁とすりおろしわさびを溶いていただく優しい味わい。
+            </p>
+            <div class="mt-2 text-[11px] text-emerald-900 bg-emerald-50 p-2 rounded">
+              🍵 <strong>シニア配慮:</strong> 殿町通り沿いで徒歩すぐ。消化が良く胃腸に優しい極上のお出汁。
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500">予算目安: 約1,400〜2,000円</span>
+              <a href="https://maps.google.com/?q=沙羅の木松韻亭+津和野" target="_blank" class="text-blue-600 font-bold hover:underline">
+                📍 Googleマップ ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- スポット3: 太皷谷稲成神社 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="relative -mx-3.5 -mt-3.5 mb-2.5 h-36 bg-slate-100 overflow-hidden">
+              <img src="images/tsuwano_torii_stairs.jpg" alt="太皷谷稲成神社の千本鳥居と石段" class="w-full h-full object-cover">
+              <span class="absolute top-2 right-2 bg-red-700/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                日本五大稲荷
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-red-700 bg-red-50 px-2 py-0.5 rounded">13:30〜14:15 (45分)</span>
+              <span class="text-red-700 bg-red-100 px-2 py-0.5 rounded font-bold">願望成就・千本鳥居</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">③ <a href="http://taikodani.jp/" target="_blank" class="text-blue-700 hover:underline">太皷谷稲成神社（たいこだにいなり）</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              日本五大稲荷の一つ。朱色の鳥居が約1,000本連なる千本鳥居。全国で唯一「稲成（成就）」の文字を使用。高台の境内からは津和野城下町（石州瓦の赤瓦屋根）を一望できます。
+            </p>
+            <div class="mt-2 text-[11px] text-red-950 bg-red-50 p-2 rounded">
+              ⚠️ <strong>歩行・脚力注意:</strong> 表参道は石段263段（約15分）。段差が厳しい場合は無理をせず、車道・タクシーで本殿横まで直行可能です！
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500">沙羅の木から鳥居口へ徒歩5分</span>
+              <a href="https://maps.google.com/?q=太皷谷稲成神社" target="_blank" class="text-blue-600 font-bold hover:underline">
+                📍 Googleマップ ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- スポット4: 津和野城跡 スタンプ押印 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="relative -mx-3.5 -mt-3.5 mb-2.5 h-36 bg-slate-100 overflow-hidden">
+              <img src="images/tsuwano_castle_ruins.jpg" alt="津和野城跡の石垣" class="w-full h-full object-cover">
+              <span class="absolute top-2 right-2 bg-purple-800/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                日本100名城スタンプ
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">14:15〜14:40 (25分)</span>
+              <span class="text-purple-700 bg-purple-100 px-2 py-0.5 rounded font-bold">公式スタンプ押印</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">④ <a href="https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%92%8C%E9%87%8E%E5%9F%8E" target="_blank" class="text-blue-700 hover:underline">津和野城跡（観光リフト山麓駅）</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              太皷谷稲成神社から西へ徒歩5分のリフト乗り場へ移動。山麓駅の窓口で日本100名城公式スタンプを押印します。
+            </p>
+            <div class="mt-2 text-[11px] text-purple-950 bg-purple-50 p-2 rounded">
+              🎯 <strong>リフト不乗・登山なし方針:</strong> スタンプ押印が目的のため、リフトには乗らず城山を仰ぎ見た後、そのまま本町通りへ移動します。足腰への負担ゼロ！
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500">神社から徒歩5分</span>
+              <a href="https://maps.google.com/?q=津和野城観光リフト" target="_blank" class="text-blue-600 font-bold hover:underline">
+                📍 Googleマップ ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- スポット5: 本町通り単独散策 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">14:45〜15:35 (50分)</span>
+              <span class="text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">老舗商店街【復活】</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">⑤ <a href="https://tsuwano-kanko.net/category1/buy/" target="_blank" class="text-blue-700 hover:underline">【復活】本町通り単独散策 ＆ お土産</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              リフト登山を割愛した時間で完全復活！焼きたてをその場で味わえる名物「源氏巻」（竹風軒・三松堂）、ノンカフェインの健康茶「ざら茶」（上領茶舗）、創業百余年の老舗「古橋酒造」など、シニア男性各自のペースでお土産選びを満喫。
+            </p>
+            <div class="mt-2 text-[11px] text-amber-950 bg-amber-50 p-2 rounded">
+              🛍️ <strong>自由行動:</strong> 各自で気になるお店を自由に散策。平坦な通りで安心。15:40に津和野駅改札前で再集合！
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500">津和野駅まで北へ徒歩約5分</span>
+              <a href="https://maps.google.com/?q=本町通り+津和野" target="_blank" class="text-blue-600 font-bold hover:underline">
+                📍 Googleマップ ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- スポット6: SLやまぐち号 ＆ 新山口解散 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="relative -mx-3.5 -mt-3.5 mb-2.5 h-36 bg-slate-100 overflow-hidden">
+              <img src="images/sl_yamaguchi.jpg" alt="SLやまぐち号" class="w-full h-full object-cover">
+              <span class="absolute top-2 right-2 bg-slate-900/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                指定席確定・108分
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">16:12〜18:00 (108分)</span>
+              <span class="text-blue-700 bg-blue-100 px-2 py-0.5 rounded font-bold">旅のフィナーレ</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">⑥ <a href="https://www.c571.jp/" target="_blank" class="text-blue-700 hover:underline">SLやまぐち号（貴婦人）乗車</a> ➔ <a href="https://ja.wikipedia.org/wiki/%E6%96%B0%E5%B1%B1%E5%8F%A3%E9%A7%85" target="_blank" class="text-blue-700 hover:underline">新山口駅解散</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              津和野駅15:40集合、コインロッカー荷物回収、15:50入線SLと記念撮影。16:12発車。レトロ客車の車窓から山陰の山々を眺めながら新山口へ（18:00着）。
+            </p>
+            <div class="mt-2 text-[11px] text-blue-950 bg-blue-50 p-2 rounded">
+              🚩 <strong>18:10 新山口駅 新幹線改札口前で解散！</strong> 各自手配の山陽新幹線（18:30〜19:00頃発）で帰路へ。お疲れ様でした！
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== Day 2 雨天プランB リスト ========== -->
+        <div id="day2-planB-list" class="space-y-3 hidden">
+          <div class="bg-teal-50 border border-teal-200 rounded-lg p-2.5 text-xs text-teal-900">
+            ☔ <strong>雨天プランBの特徴:</strong> 日本遺産センターや駅隣接の安野光雅美術館など屋内文化施設を活用し、太皷谷稲成神社は石段を避けて平坦ルートで安全に参拝します。
+          </div>
+
+          <!-- 雨B スポット1: 日本遺産センター -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded">11:00〜12:00 (60分)</span>
+              <span class="text-teal-700 bg-teal-100 px-2 py-0.5 rounded font-bold">屋内・百景図鑑賞</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900"><a href="https://tsuwano100.net/" target="_blank" class="text-blue-700 hover:underline">津和野町日本遺産センター</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              殿町通りにある屋内文化拠点。幕末の津和野を描いた名画「津和野百景図」の高精細解説や映像を、雨音を気にせずじっくり鑑賞できます。
+            </p>
+          </div>
+
+          <!-- 雨B スポット2: 平坦ルート参拝 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-red-700 bg-red-50 px-2 py-0.5 rounded">13:30〜14:15 (45分)</span>
+              <span class="text-red-700 bg-red-100 px-2 py-0.5 rounded font-bold">平坦参道・安全参拝</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900"><a href="http://taikodani.jp/" target="_blank" class="text-blue-700 hover:underline">太皷谷稲成神社（平坦ルート参拝）</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              雨で濡れて滑りやすい石段263段を避け、車道側の緩やかな舗装参道（またはタクシー）で本殿前へ。安全第一で願望成就を祈願。
+            </p>
+          </div>
+
+          <!-- 雨B スポット3: 本町通り庇散策 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">14:45〜15:15 (30分)</span>
+              <span class="text-amber-700 bg-amber-100 px-2 py-0.5 rounded font-bold">軒下・庇を辿る買い物</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900">本町通り 庇（ひさし）散策 ＆ お土産</h3>
+            <p class="text-xs text-slate-600 mt-1">
+              老舗商家の軒下・庇を伝いながら、源氏巻やざら茶、地酒をお買い物。
+            </p>
+          </div>
+
+          <!-- 雨B スポット4: 安野光雅美術館 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">15:15〜15:45 (30分)</span>
+              <span class="text-blue-700 bg-blue-100 px-2 py-0.5 rounded font-bold">駅隣接・屋内美術館</span>
+            </div>
+            <h3 class="font-bold text-sm mt-1.5 text-slate-900"><a href="http://www.town.tsuwano.lg.jp/anno/" target="_blank" class="text-blue-700 hover:underline">津和野町立 安野光雅美術館</a></h3>
+            <p class="text-xs text-slate-600 mt-1">
+              津和野駅のすぐ東隣にある美術館。津和野出身の世界的画家・安野光雅の温かな水彩画やプラネタリウムを鑑賞。見学後は傘を差さずにすぐ駅改札へ！
+            </p>
+          </div>
+        </div>
+      </section>      <!-- ==================== TAB 3 : ガイドマップ ==================== -->
+      <section id="tab-maps" class="tab-content space-y-3.5">
+        <div class="bg-blue-900 text-white p-3 rounded-xl shadow-sm">
+          <h2 class="text-sm font-bold flex items-center gap-1.5">
+            <span>🗺️</span>
+            <span>萩 ＆ 津和野 ガイドマップ（全4マップ）</span>
+          </h2>
+          <p class="text-[11px] text-blue-200 mt-1">
+            訪問場所と破線巡回ルートを示した詳細マップです。現地ではGoogleマイマップもご活用ください。
+          </p>
+        </div>
+
+        <!-- Googleマイマップ 直リンクカード -->
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-3 shadow-sm space-y-2">
+          <div class="text-xs font-bold text-blue-950 flex items-center gap-1">
+            <span>📍</span>
+            <span>スマホで現在地と照合（Google マイマップ）:</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="https://www.google.com/maps/d/edit?mid=1iV4ibLsKhKW1YAsF8FBohjpOyq3wrLI&amp;usp=sharing" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-2.5 rounded-lg text-xs font-bold shadow flex items-center justify-center gap-1">
+              <span>🏯 萩 マイマップ</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+            <a href="https://www.google.com/maps/d/edit?mid=1KP3VURrtGSeVyy23vJtryjryEahYhjs&amp;usp=sharing" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white text-center py-2 px-2.5 rounded-lg text-xs font-bold shadow flex items-center justify-center gap-1">
+              <span>🚂 津和野 マイマップ</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- マップ切り替えボタン（4枚） -->
+        <div class="grid grid-cols-2 gap-1.5 text-[11px] font-bold">
+          <button onclick="selectSvgMap('hagi_a')" id="btn-map-hagi_a" class="py-2 px-2 rounded-lg bg-blue-700 text-white shadow-sm border border-blue-800 transition text-center">
+            ☀️ 萩 晴天 (プランA)
+          </button>
+          <button onclick="selectSvgMap('hagi_b')" id="btn-map-hagi_b" class="py-2 px-2 rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition text-center">
+            ☔ 萩 雨天 (プランB)
+          </button>
+          <button onclick="selectSvgMap('tsuwano_a')" id="btn-map-tsuwano_a" class="py-2 px-2 rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition text-center">
+            ☀️ 津和野 晴天 (プランA)
+          </button>
+          <button onclick="selectSvgMap('tsuwano_b')" id="btn-map-tsuwano_b" class="py-2 px-2 rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition text-center">
+            ☔ 津和野 雨天 (プランB)
+          </button>
+        </div>
+
+        <!-- マップ表示カード -->
+        <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm space-y-2">
+          <!-- ① 萩 晴天A マップ -->
+          <div id="map-box-hagi_a" class="map-view space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-slate-900">【萩】Day 1 晴天コース（赤破線ルート）</span>
+              <span class="text-[10px] text-red-600 bg-red-50 border border-red-200 px-1.5 py-0.5 rounded font-bold">赤破線</span>
+            </div>
+            <div class="border border-slate-200 rounded-lg overflow-hidden bg-slate-50">
+              <img src="images/hagi_map_plan_a.svg" alt="萩 晴天プランA マップ" class="w-full h-auto cursor-pointer" onclick="openMapModal(this.src, '萩 晴天コース（プランA）')">
+            </div>
+            <p class="text-[11px] text-slate-600 leading-relaxed bg-slate-50 p-2 rounded">
+              <strong>【巡回順】:</strong> ①長谷川 ➔ ②ととと(昼食) ➔ ③城下町 ➔ ④萩城天守閣跡 ➔ ⑤松陰神社 ➔ ⑥菊ヶ浜夕景 ➔ ⑦おもしろき(夕食)<br>
+              <span class="text-amber-800 font-bold">※長谷川・ととと・おもしろきは中心街に徒歩数分圏内で集中！</span>
+            </p>
+          </div>
+
+          <!-- ② 萩 雨天B マップ -->
+          <div id="map-box-hagi_b" class="map-view space-y-2 hidden">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-slate-900">【萩】Day 1 雨天コース（紫破線ルート）</span>
+              <span class="text-[10px] text-purple-600 bg-purple-50 border border-purple-200 px-1.5 py-0.5 rounded font-bold">紫破線</span>
+            </div>
+            <div class="border border-slate-200 rounded-lg overflow-hidden bg-slate-50">
+              <img src="images/hagi_map_plan_b.svg" alt="萩 雨天プランB マップ" class="w-full h-auto cursor-pointer" onclick="openMapModal(this.src, '萩 雨天コース（プランB）')">
+            </div>
+            <p class="text-[11px] text-slate-600 leading-relaxed bg-slate-50 p-2 rounded">
+              <strong>【巡回順】:</strong> ①長谷川 ➔ ②ととと ➔ ③明倫学舎(屋内) ➔ ④萩城跡(平坦散策) ➔ ⑤至誠館(宝物殿) ➔ ⑥海辺カフェ ➔ ⑦おもしろき
+            </p>
+          </div>
+
+          <!-- ③ 津和野 晴天A マップ -->
+          <div id="map-box-tsuwano_a" class="map-view space-y-2 hidden">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-slate-900">【津和野】Day 2 晴天コース（青破線ルート）</span>
+              <span class="text-[10px] text-blue-600 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded font-bold">青破線</span>
+            </div>
+            <div class="border border-slate-200 rounded-lg overflow-hidden bg-slate-50">
+              <img src="images/tsuwano_map_plan_a.svg" alt="津和野 晴天プランA マップ" class="w-full h-auto cursor-pointer" onclick="openMapModal(this.src, '津和野 晴天コース（プランA）')">
+            </div>
+            <p class="text-[11px] text-slate-600 leading-relaxed bg-slate-50 p-2 rounded">
+              <strong>【巡回順】:</strong> ①津和野駅 ➔ ②殿町通り ➔ ③沙羅の木(うずめ飯) ➔ ④太皷谷稲成(263段石段) ➔ ⑤リフト乗場(城スタンプ押印) ➔ ⑥本町通り老舗散策 ➔ ⑦津和野駅(SL乗車)<br>
+              <span class="text-purple-800 font-bold">※リフト不乗・登山なし ➔ 本町通り散策を完全復活！</span>
+            </p>
+          </div>
+
+          <!-- ④ 津和野 雨天B マップ -->
+          <div id="map-box-tsuwano_b" class="map-view space-y-2 hidden">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-slate-900">【津和野】Day 2 雨天コース（青緑破線ルート）</span>
+              <span class="text-[10px] text-teal-600 bg-teal-50 border border-teal-200 px-1.5 py-0.5 rounded font-bold">青緑破線</span>
+            </div>
+            <div class="border border-slate-200 rounded-lg overflow-hidden bg-slate-50">
+              <img src="images/tsuwano_map_plan_b.svg" alt="津和野 雨天プランB マップ" class="w-full h-auto cursor-pointer" onclick="openMapModal(this.src, '津和野 雨天コース（プランB）')">
+            </div>
+            <p class="text-[11px] text-slate-600 leading-relaxed bg-slate-50 p-2 rounded">
+              <strong>【巡回順】:</strong> ①津和野駅 ➔ ②日本遺産センター(屋内) ➔ ③沙羅の木(うずめ飯) ➔ ④稲成神社(平坦参拝) ➔ ⑤リフト乗場(城スタンプ) ➔ ⑥本町通り庇散策 ➔ ⑦安野光雅美術館(屋内) ➔ ⑧津和野駅(SL乗車)
+            </p>
+          </div>
+
+          <p class="text-[10px] text-slate-400 text-center">※地図をタップすると拡大表示できます</p>
+        </div>
+      </section>      <!-- ==================== TAB 4 : 歴史偉人録 ==================== -->
+      <section id="tab-figures" class="tab-content space-y-3.5">
+        <div class="bg-amber-900 text-white p-3 rounded-xl shadow-sm">
+          <h2 class="text-sm font-bold flex items-center gap-1.5 font-serif-mincho">
+            <span>📜</span>
+            <span>萩・津和野の偉人たち（歴史付録）</span>
+          </h2>
+          <p class="text-[11px] text-amber-200 mt-1">
+            幕末維新を切り拓いた長州の志士たちと、近代日本の学術・文学を牽引した津和野の先人たち。
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <!-- 偉人1: 吉田松陰 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="flex items-start gap-3">
+              <img src="images/shoin_shokasonjuku.jpg" alt="吉田松陰" class="w-16 h-20 rounded-lg object-cover flex-none border border-slate-200">
+              <div class="flex-1 min-w-0">
+                <span class="text-[10px] text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded font-bold">1830〜1859 / 長州藩士</span>
+                <h3 class="font-bold text-sm text-slate-900 mt-0.5 font-serif-mincho">吉田 松陰（よしだ しょういん）</h3>
+                <p class="text-[11px] text-amber-800 font-bold mt-0.5">「志を立てて以て万事の源と為す」</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              わずか29年の生涯で私塾「松下村塾」を開き、身分を問わず若者たちの才能を開花させた魂の教育者。安政の大獄で散るも、その志は高杉晋作・伊藤博文・久坂玄瑞らに受け継がれ、明治維新の原動力となりました。
+            </p>
+            <div class="mt-2 pt-2 border-t border-slate-100 text-[11px] text-blue-600 flex items-center justify-between">
+              <span>📍 ゆかりの地: 松陰神社・松下村塾、至誠館</span>
+              <a href="https://showin-jinja.or.jp/" target="_blank" class="font-bold hover:underline">公式 ➔</a>
+            </div>
+          </div>
+
+          <!-- 偉人2: 高杉晋作 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="flex items-start gap-3">
+              <img src="images/hagi_castle_town.jpg" alt="高杉晋作の生家" class="w-16 h-20 rounded-lg object-cover flex-none border border-slate-200">
+              <div class="flex-1 min-w-0">
+                <span class="text-[10px] text-red-700 bg-red-50 px-1.5 py-0.5 rounded font-bold">1839〜1867 / 奇兵隊創設</span>
+                <h3 class="font-bold text-sm text-slate-900 mt-0.5 font-serif-mincho">高杉 晋作（たかすぎ しんさく）</h3>
+                <p class="text-[11px] text-red-800 font-bold mt-0.5">「おもしろき こともなき世を おもしろく」</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              松下村塾の双璧。身分にとらわれない日本初の庶民軍「奇兵隊」を結成。功山寺挙兵で長州藩を倒幕へと導き、第二次長州征討で幕府軍を圧倒。維新の前年、27歳で結核のため夭折した風雲児。
+            </p>
+            <div class="mt-2 pt-2 border-t border-slate-100 text-[11px] text-blue-600 flex items-center justify-between">
+              <span>📍 ゆかりの地: 高杉晋作誕生地、割烹おもしろき</span>
+              <a href="https://www.hagishi.com/search/detail.php?d=100001" target="_blank" class="font-bold hover:underline">解説 ➔</a>
+            </div>
+          </div>
+
+          <!-- 偉人3: 木戸孝允 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="flex items-start gap-3">
+              <img src="images/kikugahama_sunset.jpg" alt="木戸孝允" class="w-16 h-20 rounded-lg object-cover flex-none border border-slate-200">
+              <div class="flex-1 min-w-0">
+                <span class="text-[10px] text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded font-bold">1833〜1877 / 維新の三傑</span>
+                <h3 class="font-bold text-sm text-slate-900 mt-0.5 font-serif-mincho">木戸 孝允（桂 小五郎）</h3>
+                <p class="text-[11px] text-indigo-800 font-bold mt-0.5">薩長同盟の主導者・近代国家の設計者</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              西郷隆盛・大久保利通と並ぶ維新の三傑。「逃げの小五郎」として幕府の追手を逃れ、薩長同盟を締結。維新後は五箇条の御誓文起草、版籍奉還、廃藩置県を断行し、近代国家日本の礎を築きました。萩城下町に広大な旧宅が残ります。
+            </p>
+            <div class="mt-2 pt-2 border-t border-slate-100 text-[11px] text-blue-600 flex items-center justify-between">
+              <span>📍 ゆかりの地: 木戸孝允旧宅（萩城下町）</span>
+              <a href="https://www.hagishi.com/oidemase/greatman/kidotakayoshi/" target="_blank" class="font-bold hover:underline">解説 ➔</a>
+            </div>
+          </div>
+
+          <!-- 偉人4: 森鷗外 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm overflow-hidden">
+            <div class="flex items-start gap-3">
+              <img src="images/mori_ogai.jpg" alt="森鷗外" class="w-16 h-20 rounded-lg object-cover flex-none border border-slate-200">
+              <div class="flex-1 min-w-0">
+                <span class="text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded font-bold">1862〜1922 / 軍医総監・文豪</span>
+                <h3 class="font-bold text-sm text-slate-900 mt-0.5 font-serif-mincho">森 鷗外（もり おうがい）</h3>
+                <p class="text-[11px] text-emerald-800 font-bold mt-0.5">津和野藩医の家系・日本近代文学の最高峰</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              津和野藩典医の家に生まれ、藩校・養老館で学問の基礎を築いた近代日本の最高峰知性。陸軍軍医総監を務めながら、『舞姫』『高瀬舟』『山椒大夫』など日本文学史に不滅の名作を遺しました。津和野川のせせらぎや城山の風景は彼の文学的感性の原点です。
+            </p>
+            <div class="mt-2 pt-2 border-t border-slate-100 text-[11px] text-blue-600 flex items-center justify-between">
+              <span>📍 ゆかりの地: 森鷗外旧宅・記念館、藩校養老館</span>
+              <a href="https://ja.wikipedia.org/wiki/%E6%A3%AE%E9%B7%97%E5%A4%96" target="_blank" class="font-bold hover:underline">Wiki ➔</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 5 : 持物・便利帳 ==================== -->
+      <section id="tab-info" class="tab-content space-y-3.5">
+        <!-- 持ち物チェックリスト（LocalStorage保存機能つき） -->
+        <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+              <span>🎒</span>
+              <span>持ち物チェックリスト（シニア向け）</span>
+            </h3>
+            <span id="check-counter" class="text-[10px] bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded-full">
+              0 / 10 完了
+            </span>
+          </div>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-50 hover:bg-slate-100 cursor-pointer">
+              <input type="checkbox" id="chk-0" onchange="toggleCheck(0)" class="w-4 h-4 text-blue-600 rounded">
+              <span>健康保険証・マイナンバーカード</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-50 hover:bg-slate-100 cursor-pointer">
+              <input type="checkbox" id="chk-1" onchange="toggleCheck(1)" class="w-4 h-4 text-blue-600 rounded">
+              <span>常備薬（血圧・胃腸薬等 2日分＋予備1日分）</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-50 hover:bg-slate-100 cursor-pointer">
+              <input type="checkbox" id="chk-2" onchange="toggleCheck(2)" class="w-4 h-4 text-blue-600 rounded">
+              <span>お薬手帳（緊急時の医療情報共有用）</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-50 hover:bg-slate-100 cursor-pointer">
+              <input type="checkbox" id="chk-3" onchange="toggleCheck(3)" class="w-4 h-4 text-blue-600 rounded">
+              <span>スマートフォン ＆ モバイルバッテリー・充電器</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-50 hover:bg-slate-100 cursor-pointer">
+              <input type="checkbox" id="chk-4" onchange="toggleCheck(4)" class="w-4 h-4 text-blue-600 rounded">
+              <span>新幹線・SLやまぐち号の予約チケット</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-50 hover:bg-slate-100 cursor-pointer">
+              <input type="checkbox" id="chk-5" onchange="toggleCheck(5)" class="w-4 h-4 text-blue-600 rounded">
+              <span>履き慣れたウォーキングシューズ（石畳・石段対策）</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-50 hover:bg-slate-100 cursor-pointer">
+              <input type="checkbox" id="chk-6" onchange="toggleCheck(6)" class="w-4 h-4 text-blue-600 rounded">
+              <span>軽量折りたたみ傘（雨天兼用）</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-50 hover:bg-slate-100 cursor-pointer">
+              <input type="checkbox" id="chk-7" onchange="toggleCheck(7)" class="w-4 h-4 text-blue-600 rounded">
+              <span>着脱しやすい上着・カーディガン（朝夕の寒暖差対策）</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-50 hover:bg-slate-100 cursor-pointer">
+              <input type="checkbox" id="chk-8" onchange="toggleCheck(8)" class="w-4 h-4 text-blue-600 rounded">
+              <span>現金・小銭（錦鯉エサ代100円、バス用など）</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-50 hover:bg-slate-100 cursor-pointer">
+              <input type="checkbox" id="chk-9" onchange="toggleCheck(9)" class="w-4 h-4 text-blue-600 rounded">
+              <span>日本100名城スタンプ帳（萩城・津和野城用）</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 緊急連絡先 ＆ ワンタップ電話発信 -->
+        <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm space-y-2.5">
+          <h3 class="text-xs font-bold text-red-700 flex items-center gap-1.5">
+            <span>🚨</span>
+            <span>ワンタップ電話発信・緊急連絡先</span>
+          </h3>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <a href="tel:0838253311" class="flex items-center justify-between p-2.5 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg">
+              <div>
+                <strong class="text-slate-900 block">宿泊先: ビジネスホテル長谷川</strong>
+                <span class="text-[11px] text-slate-500">萩市唐樋町48（萩BC徒歩3分）</span>
+              </div>
+              <span class="bg-blue-600 text-white font-bold px-2 py-1 rounded text-[11px] flex items-center gap-1">📞 発信</span>
+            </a>
+            <a href="tel:0838220123" class="flex items-center justify-between p-2 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg">
+              <span class="text-slate-800">萩タクシー（近鉄タクシー）</span>
+              <span class="text-blue-600 font-bold">📞 0838-22-0123</span>
+            </a>
+            <a href="tel:0856720231" class="flex items-center justify-between p-2 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg">
+              <span class="text-slate-800">津和野タクシー（つわのハイヤー）</span>
+              <span class="text-blue-600 font-bold">📞 0856-72-0231</span>
+            </a>
+            <a href="tel:0838257555" class="flex items-center justify-between p-2 bg-rose-50/60 border border-rose-200 rounded-lg">
+              <span class="text-rose-900 font-medium">萩市民病院（救急・夜間）</span>
+              <span class="text-rose-700 font-bold">📞 0838-25-7555</span>
+            </a>
+            <a href="tel:0856720111" class="flex items-center justify-between p-2 bg-rose-50/60 border border-rose-200 rounded-lg">
+              <span class="text-rose-900 font-medium">津和野共存病院（救急）</span>
+              <span class="text-rose-700 font-bold">📞 0856-72-0111</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- お得きっぷ損得表 -->
+        <div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm space-y-2">
+          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+            <span>🎫</span>
+            <span>お得きっぷ：山口とっときおでかけぶらりパス</span>
+          </h3>
+          <div class="bg-slate-50 rounded-lg p-2.5 text-[11px] space-y-1.5">
+            <div class="flex justify-between">
+              <span class="text-slate-600">通常普通運賃合計:</span>
+              <strong class="text-slate-900">4,220 円</strong>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-600">ぶらりパス（2日券）:</span>
+              <strong class="text-emerald-700">4,000 円（▲220円お得）</strong>
+            </div>
+            <p class="text-[10px] text-slate-500 pt-1 border-t border-slate-200">
+              ※新山口➔萩BC（高速バス）、萩市内バス、萩BC➔津和野駅（路線バス）がすべて対象。小銭不要でスマホ画面提示のみ！
+            </p>
+          </div>
+        </div>
+
+        <!-- 旅の心得 3箇条 -->
+        <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs text-emerald-950 space-y-1.5">
+          <h4 class="font-bold text-emerald-900 flex items-center gap-1">
+            <span>🌿</span>
+            <span>シニア旅の心得 3箇条</span>
+          </h4>
+          <ol class="list-decimal list-inside space-y-1 text-[11px] text-emerald-900/90 leading-relaxed">
+            <li><strong>30〜40分歩いたら一服:</strong> 辻々の茶屋やベンチで無理なく足腰を休めましょう。</li>
+            <li><strong>足元への配慮:</strong> 城跡や石畳、雨天時は歩幅を小さくゆっくり歩行。</li>
+            <li><strong>新山口駅での解散確認:</strong> 2日目18:10頃、新幹線改札前で手荷物を確認して解散します。</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== クイックアクションバー（下部固定） ==================== -->
+    <footer class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur border-t border-slate-200 shadow-lg">
+      <div class="max-w-md mx-auto px-4 py-2 flex items-center justify-between text-center text-[10px] font-bold text-slate-600">
+        <button onclick="switchTab('day1')" class="flex flex-col items-center gap-0.5 hover:text-blue-700">
+          <span class="text-base">🏯</span>
+          <span>Day 1</span>
+        </button>
+        <button onclick="switchTab('day2')" class="flex flex-col items-center gap-0.5 hover:text-blue-700">
+          <span class="text-base">🚂</span>
+          <span>Day 2</span>
+        </button>
+        <button onclick="switchTab('maps')" class="flex flex-col items-center gap-0.5 hover:text-blue-700">
+          <span class="text-base">🗺️</span>
+          <span>地図</span>
+        </button>
+        <a href="tel:0838253311" class="flex flex-col items-center gap-0.5 text-blue-700">
+          <span class="text-base">📞</span>
+          <span>長谷川</span>
+        </a>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-slate-700">
+          <span class="text-base">⬆️</span>
+          <span>TOP</span>
+        </button>
+      </div>
+    </footer>
+
+    <!-- ==================== 地図モーダル（拡大表示用） ==================== -->
+    <div id="map-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex-col justify-center items-center p-3" onclick="closeMapModal()">
+      <div class="bg-white rounded-xl max-w-sm w-full p-3 shadow-2xl relative" onclick="event.stopPropagation()">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+          <h4 id="modal-title" class="font-bold text-xs text-slate-900">マップ拡大</h4>
+          <button onclick="closeMapModal()" class="text-slate-400 hover:text-slate-600 text-lg font-bold px-1.5 leading-none">✕</button>
+        </div>
+        <div class="py-2 max-h-[75vh] overflow-auto">
+          <img id="modal-img" src="" alt="拡大地図" class="w-full h-auto rounded">
+        </div>
+        <div class="text-center pt-1">
+          <button onclick="closeMapModal()" class="w-full py-1.5 bg-slate-800 text-white text-xs font-bold rounded-lg shadow">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== インタラクティブ JavaScript ==================== -->
+  <script>
+    // タブ切り替えロジック
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('[id^="nav-btn-"]').forEach(el => {
+        el.classList.remove('border-blue-700', 'text-blue-700');
+        el.classList.add('border-transparent');
+      });
+      const target = document.getElementById('tab-' + tabId);
+      if (target) {
+        target.classList.add('active');
+      }
+      const activeNav = document.getElementById('nav-btn-' + tabId);
+      if (activeNav) {
+        activeNav.classList.remove('border-transparent');
+        activeNav.classList.add('border-blue-700', 'text-blue-700');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 晴天 (Plan A) / 雨天 (Plan B) 切り替え
+    function togglePlan(day, plan) {
+      const planAList = document.getElementById(day + '-planA-list');
+      const planBList = document.getElementById(day + '-planB-list');
+      const btnPlanA = document.getElementById(day + '-btn-planA');
+      const btnPlanB = document.getElementById(day + '-btn-planB');
+
+      if (plan === 'planA') {
+        planAList.classList.remove('hidden');
+        planBList.classList.add('hidden');
+        btnPlanA.className = 'px-3 py-1 rounded-md text-xs font-bold ' + (day === 'day1' ? 'bg-blue-700' : 'bg-emerald-700') + ' text-white shadow-sm transition';
+        btnPlanB.className = 'px-3 py-1 rounded-md text-xs font-bold text-slate-600 hover:text-slate-900 transition';
+      } else {
+        planAList.classList.add('hidden');
+        planBList.classList.remove('hidden');
+        btnPlanB.className = 'px-3 py-1 rounded-md text-xs font-bold ' + (day === 'day1' ? 'bg-indigo-700' : 'bg-teal-700') + ' text-white shadow-sm transition';
+        btnPlanA.className = 'px-3 py-1 rounded-md text-xs font-bold text-slate-600 hover:text-slate-900 transition';
+      }
+    }
+
+    // ガイドマップ切り替え
+    function selectSvgMap(mapKey) {
+      document.querySelectorAll('.map-view').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('[id^="btn-map-"]').forEach(btn => {
+        btn.className = 'py-2 px-2 rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition text-center';
+      });
+
+      const targetBox = document.getElementById('map-box-' + mapKey);
+      if (targetBox) targetBox.classList.remove('hidden');
+
+      const activeBtn = document.getElementById('btn-map-' + mapKey);
+      if (activeBtn) {
+        let activeColor = 'bg-blue-700 text-white border-blue-800';
+        if (mapKey === 'hagi_b') activeColor = 'bg-purple-700 text-white border-purple-800';
+        if (mapKey === 'tsuwano_a') activeColor = 'bg-emerald-700 text-white border-emerald-800';
+        if (mapKey === 'tsuwano_b') activeColor = 'bg-teal-700 text-white border-teal-800';
+        activeBtn.className = 'py-2 px-2 rounded-lg ' + activeColor + ' shadow-sm border transition text-center';
+      }
+    }
+
+    // 地図モーダル拡大
+    function openMapModal(imgSrc, title) {
+      document.getElementById('modal-img').src = imgSrc;
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('map-modal').classList.remove('hidden');
+      document.getElementById('map-modal').classList.add('flex');
+    }
+
+    function closeMapModal() {
+      document.getElementById('map-modal').classList.add('hidden');
+      document.getElementById('map-modal').classList.remove('flex');
+    }
+
+    // 持ち物チェックリスト LocalStorage
+    function updateCounter() {
+      let count = 0;
+      for (let i = 0; i < 10; i++) {
+        const chk = document.getElementById('chk-' + i);
+        if (chk && chk.checked) count++;
+      }
+      const counter = document.getElementById('check-counter');
+      if (counter) {
+        counter.textContent = count + ' / 10 完了';
+        if (count === 10) {
+          counter.className = 'text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full';
+        } else {
+          counter.className = 'text-[10px] bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded-full';
+        }
+      }
+    }
+
+    function toggleCheck(idx) {
+      const chk = document.getElementById('chk-' + idx);
+      if (chk) {
+        localStorage.setItem('travel_chk_' + idx, chk.checked ? 'true' : 'false');
+      }
+      updateCounter();
+    }
+
+    // 初期化ロード
+    window.addEventListener('DOMContentLoaded', () => {
+      for (let i = 0; i < 10; i++) {
+        const val = localStorage.getItem('travel_chk_' + i);
+        const chk = document.getElementById('chk-' + i);
+        if (chk && val === 'true') {
+          chk.checked = true;
+        }
+      }
+      updateCounter();
+    });
+  </script>
+</body>
+</html>

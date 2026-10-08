@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 480" width="100%" height="100%" style="background-color: #f8fafc; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'BIZ UDPGothic', sans-serif;">
+  <defs>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#7c3aed" />
+    </marker>
+    <filter id="shadow-hb" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- タイトルバー（雨天用：青紫系） -->
+  <rect x="0" y="0" width="780" height="40" fill="#4338ca" />
+  <text x="18" y="25" font-size="15" font-weight="bold" fill="#ffffff">【萩】Day 1 雨天コース（プランB）散策ガイドマップ</text>
+  <text x="760" y="25" font-size="11" fill="#c7d2fe" text-anchor="end">位置正確反映版（紫破線：雨天巡回ルート）</text>
+
+  <!-- 地形・海・山・川 -->
+  <!-- 日本海 -->
+  <path d="M 0 40 L 780 40 L 780 120 Q 550 130 400 125 Q 260 120 180 140 Q 120 155 0 170 Z" fill="#e0f2fe" stroke="#bae6fd" stroke-width="1.5" />
+  <text x="350" y="78" font-size="14" font-weight="bold" fill="#0284c7" letter-spacing="4">日 本 海</text>
+
+  <!-- 指月山（北西） -->
+  <path d="M 40 120 Q 100 80 150 120 Q 170 160 130 200 Q 70 210 40 170 Z" fill="#dcfce7" stroke="#86efac" stroke-width="2" />
+  <text x="95" y="145" font-size="12" font-weight="bold" fill="#166534" text-anchor="middle">指月山</text>
+  <text x="95" y="162" font-size="9" fill="#15803d" text-anchor="middle">(標高143m)</text>
+
+  <!-- 菊ヶ浜（北海岸） -->
+  <path d="M 150 130 Q 220 120 320 130 Q 390 135 440 130" fill="none" stroke="#fde68a" stroke-width="8" stroke-linecap="round" />
+  <text x="235" y="122" font-size="10.5" font-weight="bold" fill="#b45309">菊ヶ浜（海辺カフェ）</text>
+
+  <!-- 河川（阿武川デルタ） -->
+  <!-- 橋本川（西） -->
+  <path d="M 160 480 Q 190 360 210 300 Q 190 230 170 190 Q 160 150 145 135" fill="none" stroke="#bae6fd" stroke-width="14" stroke-linecap="round" />
+  <!-- 松本川（東） -->
+  <path d="M 530 480 Q 550 370 570 280 Q 590 200 550 150 Q 510 130 440 130" fill="none" stroke="#bae6fd" stroke-width="14" stroke-linecap="round" />
+  <text x="590" y="240" font-size="10" fill="#0284c7" transform="rotate(75, 590, 240)">松 本 川 ➔</text>
+  <text x="170" y="330" font-size="10" fill="#0284c7" transform="rotate(-75, 170, 330)">橋 本 川 ➔</text>
+
+  <!-- 方位マーク -->
+  <g transform="translate(735, 75)">
+    <circle cx="0" cy="0" r="15" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2" filter="url(#shadow-hb)" />
+    <path d="M 0 -12 L 3.5 0 L 0 -2 L -3.5 0 Z" fill="#7c3aed" />
+    <path d="M 0 12 L 3.5 0 L 0 2 L -3.5 0 Z" fill="#64748b" />
+    <text x="0" y="-14" font-size="8.5" font-weight="bold" fill="#7c3aed" text-anchor="middle">N</text>
+  </g>
+
+  <!-- ==================== エリア枠 ==================== -->
+  <!-- 中心市街地クラスター（田町・唐樋町・熊谷町）※3施設がほぼ同位置 -->
+  <rect x="360" y="225" width="165" height="185" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2" />
+  <rect x="370" y="215" width="145" height="18" rx="4" fill="#3b82f6" />
+  <text x="442" y="228" font-size="9" font-weight="bold" fill="#ffffff" text-anchor="middle">萩中心市街地（徒歩数分圏）</text>
+
+  <!-- 雨天安心の屋内施設枠（明倫学舎） -->
+  <rect x="360" y="420" width="165" height="48" rx="6" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.2" />
+
+  <!-- ==================== 訪問経路（紫破線ルート） ==================== -->
+  <!-- ①長谷川(440, 375) ➔ ②ととと(440, 320) すぐ北隣！ -->
+  <path d="M 440 360 L 440 335" fill="none" stroke="#7c3aed" stroke-width="2.8" stroke-dasharray="5,3" marker-end="url(#arrow-purple)" />
+  <!-- ②ととと(440, 320) ➔ ③明倫学舎(440, 442) 中心街を南下（バス・タクシー約5分） -->
+  <path d="M 425 330 Q 345 385 410 440" fill="none" stroke="#7c3aed" stroke-width="2.8" stroke-dasharray="5,3" marker-end="url(#arrow-purple)" />
+  <!-- ③明倫学舎(440, 442) ➔ ④萩城天守閣跡(130, 195) 北西へバス移動（平坦路・石垣鑑賞） -->
+  <path d="M 410 445 Q 230 430 150 215" fill="none" stroke="#7c3aed" stroke-width="2.8" stroke-dasharray="5,3" marker-end="url(#arrow-purple)" />
+  <!-- ④萩城跡(130, 195) ➔ ⑤至誠館・松陰神社(670, 275) まぁーるバスで東へ移動（屋内宝物殿） -->
+  <path d="M 145 185 Q 240 160 380 170 Q 520 190 610 230 Q 645 250 655 265" fill="none" stroke="#7c3aed" stroke-width="2.8" stroke-dasharray="5,3" marker-end="url(#arrow-purple)" />
+  <!-- ⑤至誠館(670, 275) ➔ ⑥海辺カフェ/菊ヶ浜(260, 145) バス・タクシーで雨宿り珈琲休憩 -->
+  <path d="M 655 285 Q 520 240 390 180 Q 320 150 275 145" fill="none" stroke="#7c3aed" stroke-width="2.8" stroke-dasharray="5,3" marker-end="url(#arrow-purple)" />
+  <!-- ⑥海辺カフェ(260, 145) ➔ ⑦おもしろき(440, 260) 中心街へ夕食移動 -->
+  <path d="M 270 155 Q 350 200 425 245" fill="none" stroke="#7c3aed" stroke-width="2.8" stroke-dasharray="5,3" marker-end="url(#arrow-purple)" />
+  <!-- ⑦おもしろき(440, 260) ➔ ①ホテル長谷川(440, 375) 徒歩5分宿へ -->
+  <path d="M 440 275 L 440 355" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="3,3" />
+
+  <!-- ==================== 訪問スポット ノード・ピン ==================== -->
+
+  <!-- ① ホテル長谷川 (440, 375) -->
+  <g transform="translate(440, 375)" filter="url(#shadow-hb)">
+    <rect x="-65" y="-13" width="130" height="26" rx="13" fill="#ffffff" stroke="#4338ca" stroke-width="2" />
+    <circle cx="-52" cy="0" r="9" fill="#4338ca" />
+    <text x="-52" y="3.5" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="8" y="3.5" font-size="9" font-weight="bold" fill="#1e293b" text-anchor="middle">ホテル長谷川 (荷物預け)</text>
+  </g>
+
+  <!-- ② みなと食堂 ととと (440, 320) ※長谷川から徒歩2分！ -->
+  <g transform="translate(440, 320)" filter="url(#shadow-hb)">
+    <rect x="-65" y="-13" width="130" height="26" rx="13" fill="#ffffff" stroke="#d97706" stroke-width="2" />
+    <circle cx="-52" cy="0" r="9" fill="#d97706" />
+    <text x="-52" y="3.5" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="8" y="3.5" font-size="9" font-weight="bold" fill="#1e293b" text-anchor="middle">食堂ととと (12:15昼食)</text>
+  </g>
+
+  <!-- ③ 萩・明倫学舎 (440, 442) 屋内日本最大級木造校舎 -->
+  <g transform="translate(440, 442)" filter="url(#shadow-hb)">
+    <rect x="-65" y="-13" width="130" height="26" rx="13" fill="#ffffff" stroke="#16a34a" stroke-width="2" />
+    <circle cx="-52" cy="0" r="9" fill="#16a34a" />
+    <text x="-52" y="3.5" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="8" y="3.5" font-size="9" font-weight="bold" fill="#1e293b" text-anchor="middle">萩・明倫学舎 (13:30)</text>
+  </g>
+
+  <!-- ④ 萩城天守閣跡・指月公園 (130, 195) 平坦舗装路・雨煙の石垣 -->
+  <g transform="translate(130, 195)" filter="url(#shadow-hb)">
+    <rect x="-55" y="-13" width="110" height="26" rx="13" fill="#ffffff" stroke="#9333ea" stroke-width="2" />
+    <circle cx="-42" cy="0" r="9" fill="#9333ea" />
+    <text x="-42" y="3.5" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
+    <text x="8" y="3.5" font-size="9" font-weight="bold" fill="#1e293b" text-anchor="middle">萩城跡散策 (14:40)</text>
+  </g>
+
+  <!-- ⑤ 松陰神社・至誠館（宝物殿） (670, 275) 全天候型ミュージアム -->
+  <g transform="translate(670, 275)" filter="url(#shadow-hb)">
+    <rect x="-65" y="-13" width="130" height="26" rx="13" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+    <circle cx="-52" cy="0" r="9" fill="#2563eb" />
+    <text x="-52" y="3.5" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">5</text>
+    <text x="8" y="3.5" font-size="9" font-weight="bold" fill="#1e293b" text-anchor="middle">至誠館宝物殿 (15:45)</text>
+  </g>
+
+  <!-- ⑥ 菊ヶ浜・海辺カフェ (260, 145) 雨宿り＆珈琲休憩 -->
+  <g transform="translate(260, 145)" filter="url(#shadow-hb)">
+    <rect x="-55" y="-13" width="110" height="26" rx="13" fill="#ffffff" stroke="#ea580c" stroke-width="2" />
+    <circle cx="-42" cy="0" r="9" fill="#ea580c" />
+    <text x="-42" y="3.5" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">6</text>
+    <text x="8" y="3.5" font-size="9" font-weight="bold" fill="#1e293b" text-anchor="middle">海辺カフェ (16:45)</text>
+  </g>
+
+  <!-- ⑦ 居魚屋 おもしろき (440, 260) ※長谷川から徒歩数分！ -->
+  <g transform="translate(440, 260)" filter="url(#shadow-hb)">
+    <rect x="-65" y="-13" width="130" height="26" rx="13" fill="#ffffff" stroke="#dc2626" stroke-width="2" />
+    <circle cx="-52" cy="0" r="9" fill="#dc2626" />
+    <text x="-52" y="3.5" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">7</text>
+    <text x="8" y="3.5" font-size="9" font-weight="bold" fill="#1e293b" text-anchor="middle">割烹おもしろき (18:00)</text>
+  </g>
+
+  <!-- 3施設同位置関係の補足注記吹き出し -->
+  <rect x="535" y="295" width="155" height="32" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" />
+  <text x="542" y="309" font-size="8.5" font-weight="bold" fill="#92400e">★長谷川・ととと・おもしろき</text>
+  <text x="542" y="321" font-size="8" fill="#78350f">は中心街の徒歩数分圏内に集中！</text>
+
+  <!-- 凡例ボックス（左下） -->
+  <g transform="translate(15, 415)" filter="url(#shadow-hb)">
+    <rect x="0" y="0" width="310" height="55" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" />
+    <text x="10" y="16" font-size="9.5" font-weight="bold" fill="#4338ca">【凡例 ＆ Day 1 雨天ルート】</text>
+    <line x1="12" y1="28" x2="45" y2="28" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="5,3" />
+    <text x="50" y="31" font-size="8.5" fill="#334155">紫破線: プランB 雨天巡回経路（①➔②➔③➔④➔⑤➔⑥➔⑦）</text>
+    <text x="12" y="46" font-size="8" fill="#64748b">※明倫学舎・至誠館など屋内で雨を凌ぎ、萩城跡は平坦舗装路を散策</text>
+  </g>
+</svg>

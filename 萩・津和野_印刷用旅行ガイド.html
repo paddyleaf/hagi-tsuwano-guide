@@ -1,0 +1,1098 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>萩・津和野 1泊2日 プレミアム旅行ガイド（印刷・製本版）</title>
+  <style>
+    /* A4印刷および画面表示用スタイルシート */
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm;
+    }
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: #fff;
+      }
+      .page-break {
+        page-break-after: always;
+        break-after: page;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .page-container {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        min-height: auto !important;
+      }
+      a {
+        text-decoration: none !important;
+        color: #1e3a8a !important;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "BIZ UDPGothic", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      color: #24292f;
+      background-color: #f1f5f9;
+      line-height: 1.5;
+      font-size: 9.8pt;
+      margin: 0;
+      padding: 20px 0;
+    }
+
+    .page-container {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 20px auto;
+      padding: 13mm 14mm 14mm 14mm;
+      background: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    /* リンクスタイル */
+    a.info-link {
+      color: #1d4ed8;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    a.info-link:hover {
+      color: #b91c1c;
+    }
+
+    /* ヘッダー・タイトル */
+    .header-banner {
+      border-bottom: 3px double #1e3a8a;
+      padding-bottom: 8px;
+      margin-bottom: 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .header-title-box h1 {
+      margin: 0;
+      font-size: 18.5pt;
+      color: #1e3a8a;
+      letter-spacing: 0.04em;
+    }
+    .header-subtitle {
+      font-size: 10pt;
+      color: #475569;
+      margin-top: 3px;
+      font-weight: 500;
+    }
+    .header-meta {
+      text-align: right;
+      font-size: 9pt;
+      color: #334155;
+    }
+    .header-badge {
+      display: inline-block;
+      background: #1e3a8a;
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 8.5pt;
+      font-weight: bold;
+    }
+
+    /* セクション見出し */
+    h2 {
+      font-size: 12.5pt;
+      background: linear-gradient(90deg, #1e3a8a, #2563eb);
+      color: #ffffff;
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin: 12px 0 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    h3 {
+      font-size: 10.8pt;
+      color: #1e3a8a;
+      border-left: 4px solid #2563eb;
+      padding-left: 8px;
+      margin: 9px 0 6px 0;
+    }
+
+    /* 集合・解散重要ボックス */
+    .important-notice-box {
+      background: #eff6ff;
+      border: 2px solid #3b82f6;
+      border-radius: 6px;
+      padding: 9px 12px;
+      margin-bottom: 11px;
+    }
+    .notice-title {
+      font-weight: bold;
+      color: #1e40af;
+      font-size: 10.5pt;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .notice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .notice-card {
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 6px 9px;
+    }
+    .notice-card-tag {
+      display: inline-block;
+      font-size: 8pt;
+      font-weight: bold;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-bottom: 3px;
+    }
+    .tag-gather { background: #fee2e2; color: #991b1b; }
+    .tag-dismiss { background: #e0e7ff; color: #3730a3; }
+
+    /* アクセスマップ フロー図 */
+    .route-flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 8px;
+      margin-bottom: 11px;
+      font-size: 8.5pt;
+    }
+    .flow-node {
+      background: #ffffff;
+      border: 2px solid #2563eb;
+      border-radius: 6px;
+      padding: 5px 7px;
+      text-align: center;
+      flex: 1;
+      font-weight: bold;
+      color: #1e293b;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .flow-node.highlight {
+      border-color: #dc2626;
+      background: #fff1f2;
+      color: #9f1239;
+    }
+    .flow-arrow {
+      padding: 0 5px;
+      color: #64748b;
+      font-weight: bold;
+      font-size: 8.5pt;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* 表スタイル */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 9px;
+      font-size: 8.8pt;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 5px 7px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #1e293b;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    /* バッジ */
+    .badge {
+      display: inline-block;
+      padding: 1px 6px;
+      font-size: 7.5pt;
+      font-weight: bold;
+      border-radius: 3px;
+    }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-green { background: #dcfce7; color: #166534; }
+    .badge-amber { background: #fef3c7; color: #92400e; }
+    .badge-red { background: #fee2e2; color: #991b1b; }
+    .badge-purple { background: #f3e8ff; color: #6b21a8; }
+
+    /* 写真・スポットグリッド */
+    .spot-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 9px;
+    }
+    .spot-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .spot-card-img {
+      width: 100%;
+      height: 115px;
+      object-fit: cover;
+      display: block;
+    }
+    .spot-card-body {
+      padding: 6px 9px;
+    }
+    .spot-card-title {
+      font-weight: bold;
+      font-size: 9.8pt;
+      color: #1e3a8a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2px;
+    }
+    .spot-card-desc {
+      font-size: 8.3pt;
+      color: #475569;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .spot-senior-tip {
+      font-size: 8pt;
+      color: #92400e;
+      background: #fffbeb;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-top: 4px;
+      border-left: 2px solid #f59e0b;
+    }
+
+    /* 人物解説カードグリッド */
+    .figure-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-bottom: 9px;
+    }
+    .figure-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      background: #ffffff;
+      padding: 7px 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .figure-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dashed #cbd5e1;
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+    .figure-name {
+      font-size: 10.5pt;
+      font-weight: bold;
+      color: #1e3a8a;
+    }
+    .figure-role {
+      font-size: 8pt;
+      color: #64748b;
+    }
+    .figure-desc {
+      font-size: 8.3pt;
+      color: #334155;
+      line-height: 1.45;
+      margin-bottom: 4px;
+    }
+    .figure-quote {
+      font-size: 8pt;
+      color: #047857;
+      background: #ecfdf5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-bottom: 3px;
+      font-style: italic;
+    }
+    .figure-spot {
+      font-size: 7.8pt;
+      color: #1e40af;
+      background: #eff6ff;
+      padding: 2px 5px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    /* チェックリスト */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 7px;
+      font-size: 8.5pt;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #f8fafc;
+      padding: 4px 6px;
+      border-radius: 4px;
+      border: 1px solid #e2e8f0;
+    }
+    .checkbox {
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid #64748b;
+      border-radius: 2px;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* フッター */
+    .page-footer {
+      position: absolute;
+      bottom: 8mm;
+      left: 14mm;
+      right: 14mm;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 4px;
+      font-size: 8pt;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1 : 表紙 ＆ 全体概要・集合解散 ==================== -->
+  <div class="page-container">
+    <div class="header-banner">
+      <div class="header-title-box">
+        <span class="header-badge">シニア向け上質旅・完全保存版</span>
+        <h1>萩・津和野 1泊2日 プレミアム旅行ガイド</h1>
+        <div class="header-subtitle">幕末維新の息吹を巡る城下町 萩 ➔ 山陰の小京都 津和野 ＆ SLやまぐち号の汽車旅</div>
+      </div>
+      <div class="header-meta">
+        <div><strong>日程:</strong> 2026年10月30日(金)〜31日(土)</div>
+        <div><strong>参加:</strong> <strong style="color: #1e3a8a;">シニア男性 3名様</strong></div>
+      </div>
+    </div>
+
+    <!-- 重要：新山口 集合・解散ボックス -->
+    <div class="important-notice-box">
+      <div class="notice-title">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        【最重要】行き帰りの新幹線は各自手配 ＆ <a href="https://ja.wikipedia.org/wiki/%E6%96%B0%E5%B1%B1%E5%8F%A3%E9%A7%85" target="_blank" class="info-link">新山口駅</a>「現地集合・現地解散」
+      </div>
+      <div class="notice-grid">
+        <div class="notice-card">
+          <span class="notice-card-tag tag-gather">集合（Day 1）</span>
+          <div style="font-size: 9.5pt; font-weight: bold; color: #1e293b;">10月30日(金) 10:30 新山口駅 新幹線改札口前</div>
+          <div style="font-size: 8.3pt; color: #475569; margin-top: 2px;">
+            ※10:40発「<a href="https://www.bochobus.co.jp/" target="_blank" class="info-link">スーパーはぎ号</a>」に乗車するため<strong>時間厳守</strong>。<br>
+            <strong>【推奨便例】</strong>新大阪 08:33発 ➔ 新山口 10:25着（さくら547号）<br>
+            ※乗車駅に合わせて各自事前に<strong>指定席</strong>を手配ください。
+          </div>
+        </div>
+        <div class="notice-card">
+          <span class="notice-card-tag tag-dismiss">解散（Day 2）</span>
+          <div style="font-size: 9.5pt; font-weight: bold; color: #1e293b;">10月31日(土) 18:10 新山口駅 新幹線改札口前</div>
+          <div style="font-size: 8.3pt; color: #475569; margin-top: 2px;">
+            ※<a href="https://www.c571.jp/" target="_blank" class="info-link">SLやまぐち号</a>（18:00着）降車後、改札前にて解散。<br>
+            <strong>【復路新幹線例】</strong>新山口 18:21発（さくら566号）/ 18:37発（のぞみ58号）等<br>
+            ※秋の行楽期のため、各自事前に復路の指定席も確保推奨です。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 全体移動フロー概念図 -->
+    <h3>旅の広域アクセスマップ（概念ルート）</h3>
+    <div class="route-flow">
+      <div class="flow-node">新大阪 / 各地<br><span style="font-size: 7.5pt; color: #64748b;">(各自新幹線)</span></div>
+      <div class="flow-arrow">➔ 10:25着</div>
+      <div class="flow-node highlight"><a href="https://ja.wikipedia.org/wiki/%E6%96%B0%E5%B1%B1%E5%8F%A3%E9%A7%85" target="_blank" class="info-link" style="color: #9f1239;">新山口駅</a><br><span style="font-size: 7.5pt; font-weight: bold;">【10:30 集合】</span></div>
+      <div class="flow-arrow">スーパーはぎ号<br>(直行バス 60分)</div>
+      <div class="flow-node"><a href="https://www.hagishi.com/" target="_blank" class="info-link">萩 城下町</a><br><span style="font-size: 7.5pt; color: #64748b;">(ホテル長谷川泊)</span></div>
+      <div class="flow-arrow">防長バス<br>(Day2朝 105分)</div>
+      <div class="flow-node"><a href="https://tsuwano-kanko.net/" target="_blank" class="info-link">津和野</a><br><span style="font-size: 7.5pt; color: #64748b;">(殿町・太皷谷稲成)</span></div>
+      <div class="flow-arrow">SLやまぐち号<br>(16:12発 ➔ 18:00着)</div>
+      <div class="flow-node highlight"><a href="https://ja.wikipedia.org/wiki/%E6%96%B0%E5%B1%B1%E5%8F%A3%E9%A7%85" target="_blank" class="info-link" style="color: #9f1239;">新山口駅</a><br><span style="font-size: 7.5pt; font-weight: bold;">【18:10 解散】</span></div>
+    </div>
+
+    <!-- 表紙ビジュアル写真（SLやまぐち号） -->
+    <div style="position: relative; border-radius: 6px; overflow: hidden; margin-bottom: 11px; border: 1px solid #cbd5e1;">
+      <img src="images/sl_yamaguchi.jpg" alt="SLやまぐち号" style="width: 100%; height: 215px; object-fit: cover; display: block;">
+      <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(15,23,42,0.85)); color: #fff; padding: 6px 12px; font-size: 8.5pt;">
+        <strong>旅のクライマックス:</strong> 貴婦人C57形蒸気機関車「<a href="https://www.c571.jp/" target="_blank" style="color: #67e8f9; text-decoration: underline;">SLやまぐち号</a>」（Day 2 津和野 16:12発 ➔ 新山口 18:00着／指定席手配確定済み）
+      </div>
+    </div>
+
+    <!-- 旅のハイライト3箇条 -->
+    <h2>本旅行の3大プレミアム・ハイライト</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 8.3pt;">
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 7px;">
+        <strong style="color: #1e3a8a; display: block; margin-bottom: 3px;">① 明治維新の胎動「<a href="https://www.city.hagi.lg.jp/site/sekaiisan/" target="_blank" class="info-link">萩</a>」</strong>
+        白壁となまこ壁の世界遺産・萩城下町、毛利輝元公の萩城天守閣跡、吉田松陰の松下村塾。夕暮れは日本の渚百選・菊ヶ浜で日本海に沈む夕景をゆったり鑑賞。
+      </div>
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 7px;">
+        <strong style="color: #1e3a8a; display: block; margin-bottom: 3px;">② 山陰の小京都「<a href="https://tsuwano-kanko.net/" target="_blank" class="info-link">津和野</a>」</strong>
+        武家屋敷の掘割を泳ぐ錦鯉、郷土名飯「うずめ飯」、太皷谷稲成の263段石段登破。津和野城跡の日本100名城スタンプ押印と、源氏巻・ざら茶の本町通り散策！
+      </div>
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 7px;">
+        <strong style="color: #1e3a8a; display: block; margin-bottom: 3px;">③ レトロ蒸気機関車の旅</strong>
+        秋の山陰路を汽笛を響かせて駆け抜ける「<a href="https://www.c571.jp/" target="_blank" class="info-link">SLやまぐち号</a>」。確保済みのボックス席（2号車 7番B・C・D）で語り合うノスタルジックな108分。
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>萩・津和野 プレミアム旅行ガイドブック</span>
+      <span>1 / 7 ページ</span>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ==================== PAGE 2 : Day 1 萩エリア ==================== -->
+  <div class="page-container">
+    <h2>【Day 1】10月30日(金) 萩エリア：歴史と情緒を巡る旅</h2>
+
+    <!-- Day 1 タイムテーブル -->
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 14%;">時間帯</th>
+          <th style="width: 38%;">晴天時コース（プランA）</th>
+          <th style="width: 33%;">☔ 雨天時コース（プランB）</th>
+          <th style="width: 15%;">移動・負荷目安</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>各自 ➔ 10:25</strong></td>
+          <td colspan="2">各自手配の新幹線にて<a href="https://ja.wikipedia.org/wiki/%E6%96%B0%E5%B1%B1%E5%8F%A3%E9%A7%85" target="_blank" class="info-link">新山口駅</a>へ移動 ➔ <strong>10:30 新幹線改札口前に集合</strong></td>
+          <td>各自手配</td>
+        </tr>
+        <tr>
+          <td><strong>10:40〜11:40</strong></td>
+          <td colspan="2">新山口駅 ➔ <a href="https://www.bochobus.co.jp/" target="_blank" class="info-link">萩バスセンター</a>【直行バス「<a href="https://www.bochobus.co.jp/" target="_blank" class="info-link">スーパーはぎ号</a>」】（周遊パス利用）</td>
+          <td>直行バス 60分</td>
+        </tr>
+        <tr>
+          <td><strong>11:40〜12:00</strong></td>
+          <td colspan="2">荷物預け（<a href="https://travel.rakuten.co.jp/HOTEL/76469/" target="_blank" class="info-link">ビジネスホテル長谷川</a>／バスセンター徒歩1分・手ぶら散策準備）</td>
+          <td>徒歩約1分</td>
+        </tr>
+        <tr>
+          <td><strong>12:15〜13:15</strong></td>
+          <td colspan="2"><strong>【昼食】<a href="https://www.hagishi.com/chosyu-kaisen/mabushi/" target="_blank" class="info-link">みなと食堂 ととと</a></strong>（萩港直結・地魚の絶品海鮮まぶし丼・刺身定食）</td>
+          <td>車/タクシー5分</td>
+        </tr>
+        <tr>
+          <td><strong>13:30〜14:40</strong></td>
+          <td><strong>世界遺産 <a href="https://www.city.hagi.lg.jp/site/sekaiisan/" target="_blank" class="info-link">萩城下町散策</a></strong><br><span style="font-size: 8pt; color: #475569;"><a href="https://www.hagishi.com/search/detail.php?d=100061" target="_blank" class="info-link">菊屋家住宅</a>・<a href="https://www.hagishi.com/oidemase/greatman/kidotakayoshi/" target="_blank" class="info-link">木戸孝允旧宅</a>・<a href="https://www.hagishi.com/search/detail.php?d=100001" target="_blank" class="info-link">高杉晋作誕生地</a></span></td>
+          <td><strong><a href="https://www.city.hagi.lg.jp/site/meiringakusha/" target="_blank" class="info-link">萩・明倫学舎（旧明倫館）</a></strong><br><span style="font-size: 8pt; color: #475569;">日本最大級の木造校舎群・幕末展示・カフェ</span></td>
+          <td>まぁーるバス約10分<br><span class="badge badge-green">平坦・歩行適度</span></td>
+        </tr>
+        <tr>
+          <td><strong>14:40〜15:40</strong></td>
+          <td><strong>【史跡】<a href="https://www.hagishi.com/search/detail.php?d=100050" target="_blank" class="info-link">萩城天守閣跡（指月公園）</a></strong><br><span style="font-size: 8pt; color: #475569;">高杉晋作誕生地から約20分（バス/徒歩）。慶長9年築城・毛利輝元居城の天守台石垣とお堀・VR天守</span></td>
+          <td><strong>萩城天守閣跡・指月公園（雨天散策）</strong><br><span style="font-size: 8pt; color: #475569;">雨煙に煙る重厚な石垣とお堀の風情（傘をさして平坦路巡回）</span></td>
+          <td>誕生地より約20分<br><span class="badge badge-green">平坦路・見学40分</span></td>
+        </tr>
+        <tr>
+          <td><strong>15:45〜16:40</strong></td>
+          <td><strong>世界遺産 <a href="https://showin-jinja.or.jp/" target="_blank" class="info-link">松陰神社・松下村塾</a></strong><br><span style="font-size: 8pt; color: #475569;">維新の志士を育てた講義室・幽囚ノ旧宅（※時間・脚力に応じ調整可）</span></td>
+          <td><strong>松陰神社「<a href="https://showin-jinja.or.jp/guide-map/shiseikan/" target="_blank" class="info-link">至誠館（宝物殿）</a>」</strong><br><span style="font-size: 8pt; color: #475569;">全天候型展示館・直筆書状鑑賞</span></td>
+          <td>まぁーるバス約15分<br><span class="badge badge-green">敷地内平坦</span></td>
+        </tr>
+        <tr>
+          <td><strong>16:45〜17:30</strong></td>
+          <td><strong><a href="https://ja.wikipedia.org/wiki/%E8%8F%8A%E3%83%B6%E6%B5%9C" target="_blank" class="info-link">菊ヶ浜（日本の渚百選）</a></strong><br><span style="font-size: 8pt; color: #475569;">萩城跡すぐ隣！指月山と日本海の夕景鑑賞（日没目安 17:20）</span></td>
+          <td><strong>萩焼窯元 ＆ 明倫館カフェ</strong><br><span style="font-size: 8pt; color: #475569;">伝統の萩焼器鑑賞と珈琲休憩</span></td>
+          <td>徒歩すぐ/バス<br><span class="badge badge-amber">木製ベンチ着席</span></td>
+        </tr>
+        <tr>
+          <td><strong>18:00〜20:00</strong></td>
+          <td colspan="2"><strong>【夕食・割烹】<a href="https://hagi-omoshiroki.com/" target="_blank" class="info-link">おもしろき</a></strong>（長門和牛・萩地魚・銘酒「東洋美人」）【予約確定済み】</td>
+          <td>徒歩約5分</td>
+        </tr>
+        <tr>
+          <td><strong>20:00</strong></td>
+          <td colspan="2"><a href="https://travel.rakuten.co.jp/HOTEL/76469/" target="_blank" class="info-link">ビジネスホテル長谷川</a> チェックイン（夕食処より北へ徒歩約5分）</td>
+          <td>宿泊手配済み</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Day 1 スポット写真カード（3点） -->
+    <h3>Day 1 萩エリアの注目名所</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 7px;">
+      <div class="spot-card">
+        <img src="images/hagi_castle_town.jpg" alt="萩城下町" class="spot-card-img" style="height: 92px;">
+        <div class="spot-card-body">
+          <div class="spot-card-title" style="font-size: 8.8pt;">
+            <span><a href="https://www.city.hagi.lg.jp/site/sekaiisan/" target="_blank" class="info-link">萩城下町（世界遺産）</a></span>
+          </div>
+          <p class="spot-card-desc" style="font-size: 7.8pt;">白壁・なまこ壁・夏みかんの土塀が残る奇跡の武家地。高杉晋作誕生地など。</p>
+          <div class="spot-senior-tip" style="font-size: 7.4pt;">👟 <strong>歩行:</strong> 平坦な散策路。</div>
+        </div>
+      </div>
+      <div class="spot-card">
+        <img src="images/hagi_castle_ruins.jpg" alt="萩城天守閣跡" class="spot-card-img" style="height: 92px;">
+        <div class="spot-card-body">
+          <div class="spot-card-title" style="font-size: 8.8pt;">
+            <span><a href="https://www.hagishi.com/search/detail.php?d=100050" target="_blank" class="info-link">萩城天守閣跡（指月公園）</a></span>
+          </div>
+          <p class="spot-card-desc" style="font-size: 7.8pt;">毛利輝元公居城の重厚な天守台石垣とお堀。誕生地からバス・徒歩20分、菊ヶ浜すぐ隣。</p>
+          <div class="spot-senior-tip" style="font-size: 7.4pt;">🏯 <strong>見所:</strong> 堀の水鏡とVR天守。</div>
+        </div>
+      </div>
+      <div class="spot-card">
+        <img src="images/kikugahama_sunset.jpg" alt="菊ヶ浜夕景" class="spot-card-img" style="height: 92px;">
+        <div class="spot-card-body">
+          <div class="spot-card-title" style="font-size: 8.8pt;">
+            <span><a href="https://ja.wikipedia.org/wiki/%E8%8F%8A%E3%83%B6%E6%B5%9C" target="_blank" class="info-link">菊ヶ浜（夕景名所）</a></span>
+          </div>
+          <p class="spot-card-desc" style="font-size: 7.8pt;">日本の渚百選。指月山を背景に日本海へ沈む夕日が黄金に染める絶景（日没目安17:20）。</p>
+          <div class="spot-senior-tip" style="font-size: 7.4pt;">☕ <strong>ベンチ:</strong> 腰掛けてゆったり鑑賞。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 1 グルメ・宿詳細 -->
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 7px 11px; margin-top: 5px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+        <strong style="color: #1e3a8a; font-size: 9.8pt;">🥢 夕食【割烹 <a href="https://hagi-omoshiroki.com/" target="_blank" class="info-link">おもしろき</a>】＆ 🏨 宿泊【<a href="https://travel.rakuten.co.jp/HOTEL/76469/" target="_blank" class="info-link">ビジネスホテル長谷川</a>】</strong>
+        <span class="badge badge-red">予約確定済み</span>
+      </div>
+      <div style="font-size: 8.3pt; color: #334155;">
+        ・<strong>おもしろき（18:00〜）:</strong> 高杉晋作の句に因む地産地消の和食処。萩の地魚、長門和牛ステーキ、銘酒「東洋美人」を満喫。<br>
+        ・<strong>ホテル長谷川（20:00イン）:</strong> 萩バスセンター徒歩1分。夕食会場からも徒歩5分で移動負担ゼロ。
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>萩・津和野 プレミアム旅行ガイドブック</span>
+      <span>2 / 7 ページ</span>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ==================== PAGE 3 : Day 2 津和野エリア ==================== -->
+  <div class="page-container">
+    <h2>【Day 2】10月31日(土) 津和野エリア：山陰の小京都とSLの旅</h2>
+
+    <!-- Day 2 タイムテーブル -->
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 14%;">時間帯</th>
+          <th style="width: 38%;">晴天時コース（プランA）</th>
+          <th style="width: 33%;">☔ 雨天時コース（プランB）</th>
+          <th style="width: 15%;">移動・負荷目安</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>08:40〜09:00</strong></td>
+          <td colspan="2">ホテル長谷川チェックアウト ➔ <a href="https://www.bochobus.co.jp/" target="_blank" class="info-link">萩バスセンター</a>へ移動</td>
+          <td>徒歩約1分</td>
+        </tr>
+        <tr>
+          <td><strong>09:00〜10:45</strong></td>
+          <td colspan="2">萩バスセンター ➔ 津和野駅前【防長バス】（周遊パス利用・風光明媚な山間路）</td>
+          <td>路線バス 105分</td>
+        </tr>
+        <tr>
+          <td><strong>10:45〜11:00</strong></td>
+          <td colspan="2"><a href="https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%92%8C%E9%87%8E%E9%A7%85" target="_blank" class="info-link">JR津和野駅</a> コインロッカーにて手荷物預け（手ぶら散策準備）</td>
+          <td>駅構内</td>
+        </tr>
+        <tr>
+          <td><strong>11:00〜12:00</strong></td>
+          <td><strong><a href="https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%92%8C%E9%87%8E%E7%94%BA" target="_blank" class="info-link">殿町通り散策</a></strong><br><span style="font-size: 8pt; color: #475569;">掘割の錦鯉エサやり・<a href="https://ja.wikipedia.org/wiki/%E9%A4%8A%E8%80%81%E9%A4%A8" target="_blank" class="info-link">藩校養老館</a>・畳敷きの<a href="https://ja.wikipedia.org/wiki/%E4%B9%99%E5%A5%B3%E5%B3%A0%E3%83%9E%E3%83%AA%E3%82%A2%E8%81%96%E5%A0%82" target="_blank" class="info-link">カトリック教会</a></span></td>
+          <td><strong><a href="https://tsuwano100.net/" target="_blank" class="info-link">津和野町日本遺産センター</a></strong><br><span style="font-size: 8pt; color: #475569;">殿町通り沿い・「津和野百景図」解説映像と展示</span></td>
+          <td>徒歩約8分<br><span class="badge badge-green">平坦な石畳</span></td>
+        </tr>
+        <tr>
+          <td><strong>12:15〜13:15</strong></td>
+          <td colspan="2"><strong>【昼食】日本五大名飯「うずめ飯」</strong>（<a href="https://saranoki-tsuwano.net/" target="_blank" class="info-link">沙羅の木 松韻亭</a> または <a href="https://tsuwano-kanko.net/category1/wasyoku/" target="_blank" class="info-link">寿司割烹 あおき</a>）</td>
+          <td>殿町通り沿い</td>
+        </tr>
+        <tr>
+          <td><strong>13:30〜14:15</strong></td>
+          <td><strong>【挑戦】<a href="http://taikodani.jp/" target="_blank" class="info-link">太皷谷稲成神社</a></strong><br><span style="font-size: 8pt; color: #475569;">朱色の千本鳥居・263段石段登破 ➔ 願望成就祈願</span></td>
+          <td><strong>太皷谷稲成神社（平坦ルート参拝）</strong><br><span style="font-size: 8pt; color: #475569;">雨天時は無理せず平坦車道または本殿周辺参拝</span></td>
+          <td><span class="badge badge-red">晴:石段263段</span><br><span class="badge badge-amber">雨:平坦参道</span></td>
+        </tr>
+        <tr>
+          <td><strong>14:15〜14:40</strong></td>
+          <td><strong>【日本100名城】<a href="https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%92%8C%E9%87%8E%E5%9F%8E" target="_blank" class="info-link">津和野城跡</a>（スタンプ押印）</strong><br><span style="font-size: 8pt; color: #475569;">神社より観光リフト乗り場へ徒歩5分。山麓駅窓口にて<strong>「日本100名城スタンプ」を押印</strong>（※リフト不乗・登山なし）</span></td>
+          <td><strong>津和野城跡（スタンプ押印）</strong><br><span style="font-size: 8pt; color: #475569;">観光リフト乗り場窓口にて雨天でも濡れずにスタンプ押印</span></td>
+          <td>神社より徒歩5分<br><span class="badge badge-green">平坦・スタンプ押印</span></td>
+        </tr>
+        <tr>
+          <td><strong>14:45〜15:35</strong></td>
+          <td><strong>【復活】<a href="https://tsuwano-kanko.net/category1/buy/" target="_blank" class="info-link">本町通り単独散策</a> ＆ お土産</strong><br><span style="font-size: 8pt; color: #475569;">源氏巻［<a href="https://chikufuken.com/" target="_blank" class="info-link">竹風軒</a>/<a href="https://sanshodou.co.jp/" target="_blank" class="info-link">三松堂</a>］・ざら茶［<a href="https://kamiryocha.com/" target="_blank" class="info-link">香味園 上領茶舗</a>］の老舗巡り</span></td>
+          <td><strong>本町通り庇散策 ＆ <a href="http://www.town.tsuwano.lg.jp/anno/" target="_blank" class="info-link">安野光雅美術館</a></strong><br><span style="font-size: 8pt; color: #475569;">屋根付き商家通り散策と駅横の全天候型美術館鑑賞</span></td>
+          <td>徒歩約5分<br><span class="badge badge-green">平坦・お土産購入</span></td>
+        </tr>
+        <tr>
+          <td><strong>15:40〜16:12</strong></td>
+          <td colspan="2">津和野駅 集合・ロッカー荷物回収 ➔ 15:50入線のSLを背景に記念撮影</td>
+          <td>駅ホーム集合</td>
+        </tr>
+        <tr>
+          <td><strong>16:12〜18:00</strong></td>
+          <td colspan="2"><strong>【乗車】<a href="https://www.c571.jp/" target="_blank" class="info-link">SLやまぐち号</a></strong>（津和野 ➔ 新山口）【2号車 7番B・C・D席 確定済み】</td>
+          <td>SL観光列車 108分</td>
+        </tr>
+        <tr>
+          <td><strong>18:10〜</strong></td>
+          <td colspan="2"><strong><a href="https://ja.wikipedia.org/wiki/%E6%96%B0%E5%B1%B1%E5%8F%A3%E9%A7%85" target="_blank" class="info-link">新山口駅</a> 新幹線改札口前にて解散</strong> ➔ 各自予約の新幹線にて帰路へ</td>
+          <td><span class="badge badge-red">現地解散</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Day 2 スポット写真カード（3点） -->
+    <h3>Day 2 津和野エリアの注目名所 ＆ グルメ</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 7px;">
+      <div class="spot-card">
+        <img src="images/tsuwano_tonomachi_carp.jpg" alt="殿町通りと錦鯉" class="spot-card-img" style="height: 92px;">
+        <div class="spot-card-body">
+          <div class="spot-card-title" style="font-size: 8.8pt;">
+            <span><a href="https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%92%8C%E9%87%8E%E7%94%BA" target="_blank" class="info-link">殿町通り ＆ 錦鯉</a></span>
+          </div>
+          <p class="spot-card-desc" style="font-size: 7.8pt;">掘割に約400匹の錦鯉が泳ぐ小京都。藩校養老館・畳敷きのカトリック教会。</p>
+          <div class="spot-senior-tip" style="font-size: 7.4pt;">🚶 <strong>歩行:</strong> 平坦な通りで安心散策。</div>
+        </div>
+      </div>
+      <div class="spot-card">
+        <img src="images/tsuwano_castle_ruins.jpg" alt="津和野城跡" class="spot-card-img" style="height: 92px;">
+        <div class="spot-card-body">
+          <div class="spot-card-title" style="font-size: 8.8pt;">
+            <span><a href="https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%92%8C%E9%87%8E%E5%9F%8E" target="_blank" class="info-link">津和野城（100名城）</a></span>
+          </div>
+          <p class="spot-card-desc" style="font-size: 7.8pt;">リフト乗り場にて名城スタンプ押印（リフト不乗）。城山と山頂石垣を仰ぐ。</p>
+          <div class="spot-senior-tip" style="font-size: 7.4pt;">💮 <strong>スタンプ:</strong> 山麓窓口で楽々押印。</div>
+        </div>
+      </div>
+      <div class="spot-card">
+        <img src="images/tsuwano_torii_stairs.jpg" alt="太皷谷稲成神社" class="spot-card-img" style="height: 92px;">
+        <div class="spot-card-body">
+          <div class="spot-card-title" style="font-size: 8.8pt;">
+            <span><a href="http://taikodani.jp/" target="_blank" class="info-link">太皷谷稲成神社</a></span>
+          </div>
+          <p class="spot-card-desc" style="font-size: 7.8pt;">日本五大稲荷。朱塗りの鳥居が連なる263段石段をシニア3人で登破！</p>
+          <div class="spot-senior-tip" style="font-size: 7.4pt;">⚠️ <strong>配慮:</strong> 手すりあり。雨天時は安全重視。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 太皷谷稲成神社 ＆ 津和野城跡スタンプ・本町通り 心得 -->
+    <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 5px; padding: 5px 10px; font-size: 8.1pt; color: #92400e;">
+      <strong>🚩 太皷谷稲成神社 ＆ 津和野城跡スタンプ押印・本町通り散策の心得:</strong><br>
+      観光リフト乗り場は神社から徒歩5分です。山麓駅窓口にて<strong>「日本100名城スタンプ」を押印</strong>します（リフトには乗車せず、登山も行いません）。スタンプ押印後はゆったりと本町通りへ移動し、伝統銘菓「源氏巻」の実演販売や「ざら茶」の試飲、お土産選びをご堪能ください。
+    </div>
+
+    <div class="page-footer">
+      <span>萩・津和野 プレミアム旅行ガイドブック</span>
+      <span>3 / 7 ページ</span>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ==================== PAGE 4 : 交通・チケット・持ち物・緊急連絡先 ==================== -->
+  <div class="page-container">
+    <h2>交通・チケット手配 ＆ 持ち物・緊急連絡先</h2>
+
+    <!-- 周遊パス損得表 -->
+    <h3><a href="https://app.tabi-wester.westjr.co.jp/" target="_blank" class="info-link">山口ふくの国周遊パス（5,000円）</a>完全活用ガイド</h3>
+    <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 10px; margin-bottom: 9px;">
+      <table>
+        <thead>
+          <tr>
+            <th>利用区間・施設</th>
+            <th>通常運賃</th>
+            <th>周遊パス適用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>スーパーはぎ号（新山口 ➔ 萩）</td>
+            <td>1,600円</td>
+            <td><strong style="color: #166534;">無料（対象）</strong></td>
+          </tr>
+          <tr>
+            <td>萩循環まぁーるバス（2回乗車分）</td>
+            <td>200円</td>
+            <td><strong style="color: #166534;">無料（対象）</strong></td>
+          </tr>
+          <tr>
+            <td>防長バス（萩 ➔ 津和野）</td>
+            <td>2,220円</td>
+            <td><strong style="color: #166534;">無料（対象）</strong></td>
+          </tr>
+          <tr>
+            <td>JR山口線（津和野 ➔ 新山口・SL運賃分）</td>
+            <td>1,170円</td>
+            <td><strong style="color: #166534;">無料（対象）</strong></td>
+          </tr>
+          <tr>
+            <td>萩・明倫学舎 2号館入館料</td>
+            <td>300円</td>
+            <td><strong style="color: #166534;">無料（対象）</strong></td>
+          </tr>
+          <tr style="background: #eff6ff; font-weight: bold;">
+            <td>実費合計 vs パス代金</td>
+            <td>5,490円相当</td>
+            <td style="color: #1e40af;">5,000円（490円お得＋キャッシュレス）</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 7px 9px; font-size: 8.3pt;">
+        <strong style="color: #1e3a8a;">📱 周遊パスの購入・提示方法:</strong>
+        <p style="margin: 3px 0 5px 0; color: #475569;">JR西日本公式「<a href="https://app.tabi-wester.westjr.co.jp/" target="_blank" class="info-link">tabiwa by WESTER</a>」アプリにて事前に購入可能。バス降車時や改札でスマートフォンの画面を見せるだけでスムーズに乗降できます。</p>
+        <strong style="color: #1e3a8a;">🚂 SL指定席券（手配済み）:</strong>
+        <p style="margin: 3px 0 0 0; color: #475569;">SL乗車には別途指定席券（1,680円）が必要ですが、<strong>2号車 7番B・C・D席</strong>で手配完了済みです。</p>
+      </div>
+    </div>
+
+    <!-- 持ち物チェックリスト -->
+    <h3>旅の持ち物チェックリスト（シニア快適仕様）</h3>
+    <div class="checklist-grid" style="margin-bottom: 11px;">
+      <div class="checklist-item"><span class="checkbox"></span> <strong>健康保険証（原本/マイナ保険証）</strong></div>
+      <div class="checklist-item"><span class="checkbox"></span> <strong>常備薬・お薬手帳（2日分＋予備）</strong></div>
+      <div class="checklist-item"><span class="checkbox"></span> <strong>履き慣れたスニーカー・靴下</strong></div>
+      <div class="checklist-item"><span class="checkbox"></span> <strong>新幹線チケット（各自予約分）</strong></div>
+      <div class="checklist-item"><span class="checkbox"></span> <strong>スマートフォン ＆ 充電器・バッテリー</strong></div>
+      <div class="checklist-item"><span class="checkbox"></span> <strong>折りたたみ傘・レイン具（雨天対策）</strong></div>
+      <div class="checklist-item"><span class="checkbox"></span> <strong>羽織りもの（秋の朝晩・山間寒暖差対策）</strong></div>
+      <div class="checklist-item"><span class="checkbox"></span> <strong>現金（小銭・自販機・賽銭・ロッカー用）</strong></div>
+      <div class="checklist-item"><span class="checkbox"></span> <strong>メガネ・老眼鏡・ティッシュ・ウェット類</strong></div>
+    </div>
+
+    <!-- 緊急連絡先・施設一覧表 -->
+    <h3>緊急連絡先 ＆ 主要施設データ</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 25%;">施設・事業者名</th>
+          <th style="width: 25%;">区分 / 所在地</th>
+          <th style="width: 25%;">電話番号</th>
+          <th style="width: 25%;">備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong><a href="https://travel.rakuten.co.jp/HOTEL/76469/" target="_blank" class="info-link">ビジネスホテル長谷川</a></strong></td>
+          <td>宿泊先（萩市唐樋町17-1）</td>
+          <td><strong>0838-22-0450</strong></td>
+          <td>萩バスセンター徒歩1分 / 20:00チェックイン</td>
+        </tr>
+        <tr>
+          <td><strong><a href="https://hagi-omoshiroki.com/" target="_blank" class="info-link">割烹 おもしろき</a></strong></td>
+          <td>Day1夕食（萩市東田町32）</td>
+          <td><strong>0838-26-8055</strong></td>
+          <td>18:00予約確定済み（長門和牛・地魚）</td>
+        </tr>
+        <tr>
+          <td><strong>萩近鉄タクシー</strong></td>
+          <td>タクシー（萩市内）</td>
+          <td><strong>0838-22-0348</strong></td>
+          <td>歩行疲労時・雨天時の移動手配</td>
+        </tr>
+        <tr>
+          <td><strong>津和野タクシー</strong></td>
+          <td>タクシー（津和野町内）</td>
+          <td><strong>0856-72-0231</strong></td>
+          <td>太皷谷稲成神社への車道迂回時など</td>
+        </tr>
+        <tr>
+          <td><strong><a href="https://www.bochobus.co.jp/" target="_blank" class="info-link">防長交通（萩営業所）</a></strong></td>
+          <td>バス運行（防長バス・スーパーはぎ）</td>
+          <td><strong>0838-22-3811</strong></td>
+          <td>運行状況・忘れ物問い合わせ</td>
+        </tr>
+        <tr>
+          <td><strong><a href="https://www.city.hagi.lg.jp/soshiki/44/" target="_blank" class="info-link">萩市民病院</a></strong></td>
+          <td>総合病院・救急（萩市椿3460-3）</td>
+          <td><strong>0838-25-7111</strong></td>
+          <td>休日・夜間急患対応</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 旅の心得ボックス -->
+    <div style="background: #f1f5f9; border-left: 4px solid #1e3a8a; padding: 6px 10px; font-size: 8.3pt; color: #334155; margin-top: 7px;">
+      <strong>🌟 幹事よりシニア快適旅のワンポイント心得:</strong>
+      「無理をせず、疲れたらベンチや茶屋で一息」「手荷物は宿や駅ロッカーに預けて手ぶらで歩く」「SLやまぐち号はトンネル通過時に煙が入るので窓を閉める」の3点を心がけ、シニア3人の良き友と語らう贅沢な2日間をお過ごしください！
+    </div>
+
+    <div class="page-footer">
+      <span>萩・津和野 プレミアム旅行ガイドブック</span>
+      <span>4 / 7 ページ</span>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ==================== PAGE 5 : 【付録】歴史上の偉人たち解説 ==================== -->
+  <div class="page-container">
+    <h2>【付録１】萩・津和野を彩る歴史上の偉人たち（幕末の志士 ＆ 近代の知性）</h2>
+    <div style="font-size: 8.5pt; color: #475569; margin-bottom: 8px;">
+      萩は明治維新を切り拓いた熱き志士たちの故郷であり、津和野は近代日本の学術・文学の礎を築いた知性のふるさとです。
+      旅先で訪れるスポットと重ね合わせることで、散策の深みが何倍にも増す偉人たちのエピソードをご紹介します。
+    </div>
+
+    <!-- 偉人イラスト・ビジュアル（松下村塾 ＆ 森鷗外） -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 9px;">
+      <div style="position: relative; border-radius: 5px; overflow: hidden; border: 1px solid #cbd5e1;">
+        <img src="images/shoin_shokasonjuku.jpg" alt="松下村塾講義" style="width: 100%; height: 110px; object-fit: cover; display: block;">
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15,23,42,0.8); color: #fff; padding: 3px 8px; font-size: 7.5pt;">
+          <strong>萩の精神的支柱:</strong> 吉田松陰と松下村塾の門弟たち
+        </div>
+      </div>
+      <div style="position: relative; border-radius: 5px; overflow: hidden; border: 1px solid #cbd5e1;">
+        <img src="images/mori_ogai.jpg" alt="森鷗外" style="width: 100%; height: 110px; object-fit: cover; display: block;">
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15,23,42,0.8); color: #fff; padding: 3px 8px; font-size: 7.5pt;">
+          <strong>津和野が生んだ近代の知性:</strong> 文豪・森鷗外
+        </div>
+      </div>
+    </div>
+
+    <!-- 偉人解説カード（6名） -->
+    <div class="figure-grid">
+      <!-- 1. 吉田松陰 -->
+      <div class="figure-card">
+        <div class="figure-header">
+          <span class="figure-name"><a href="https://ja.wikipedia.org/wiki/%E5%90%89%E7%94%B0%E6%9D%BE%E9%99%B0" target="_blank" class="info-link">吉田 松陰</a>（よしだ しょういん / 1830〜1859）</span>
+          <span class="figure-role">思想家・教育者</span>
+        </div>
+        <div class="figure-quote">「至誠にして動かざる者は、未だこれ有らざるなり」</div>
+        <div class="figure-desc">
+          長州藩士。下田での黒船密航失敗後、萩の野山獄・幽囚室に投獄される。その後私塾「松下村塾」を開き、身分を問わず若者を指導。高杉晋作、久坂玄瑞、伊藤博文らを育て、明治維新の精神的源流となった。安政の大獄で30歳にて刑死。
+        </div>
+        <div class="figure-spot">📍 ゆかりの地: <a href="https://showin-jinja.or.jp/" target="_blank" class="info-link">松陰神社・松下村塾</a>、<a href="https://showin-jinja.or.jp/guide-map/shiseikan/" target="_blank" class="info-link">至誠館</a></div>
+      </div>
+
+      <!-- 2. 高杉晋作 -->
+      <div class="figure-card">
+        <div class="figure-header">
+          <span class="figure-name"><a href="https://ja.wikipedia.org/wiki/%E9%AB%98%E6%9D%89%E6%99%8B%E4%BD%9C" target="_blank" class="info-link">高杉 晋作</a>（たかすぎ しんさく / 1839〜1867）</span>
+          <span class="figure-role">奇兵隊創設者・革命児</span>
+        </div>
+        <div class="figure-quote">「おもしろき こともなき世を おもしろく」</div>
+        <div class="figure-desc">
+          松下村塾の双璧。身分制を撤廃した日本初の近代軍隊「奇兵隊」を結成。功山寺挙兵で長州藩論を倒幕へ一本化し、四境戦争（第二次長州征討）で幕府軍を撃破。大政奉還を見届ける直前、27歳で結核のため夭折した天才革命家。夕食処「おもしろき」の由来。
+        </div>
+        <div class="figure-spot">📍 ゆかりの地: <a href="https://www.hagishi.com/search/detail.php?d=100001" target="_blank" class="info-link">高杉晋作誕生地</a>、<a href="https://hagi-omoshiroki.com/" target="_blank" class="info-link">割烹おもしろき</a></div>
+      </div>
+
+      <!-- 3. 木戸孝允（桂小五郎） -->
+      <div class="figure-card">
+        <div class="figure-header">
+          <span class="figure-name"><a href="https://ja.wikipedia.org/wiki/%E6%9C%A8%E6%88%B8%E5%AD%9D%E5%85%81" target="_blank" class="info-link">木戸 孝允</a>（きど たかよし / 1833〜1877）</span>
+          <span class="figure-role">維新の三傑・政治家</span>
+        </div>
+        <div class="figure-quote">「逃げの小五郎」から近代国家建設の棟梁へ</div>
+        <div class="figure-desc">
+          萩城下町の医家・和田家に生まれ桂家の養子となる。剣豪でありながら卓越した先見性と調整力を持ち、西郷隆盛らと「薩長同盟」を締結。維新後は「五箇条の御誓文」の起草や版籍奉還・廃藩置県を断行。西郷隆盛・大久保利通と並ぶ「維新の三傑」。
+        </div>
+        <div class="figure-spot">📍 ゆかりの地: <a href="https://www.hagishi.com/oidemase/greatman/kidotakayoshi/" target="_blank" class="info-link">木戸孝允旧宅</a>（萩城下町）</div>
+      </div>
+
+      <!-- 4. 伊藤博文 -->
+      <div class="figure-card">
+        <div class="figure-header">
+          <span class="figure-name"><a href="https://ja.wikipedia.org/wiki/%E4%BC%8A%E8%97%A4%E5%8D%9A%E6%96%87" target="_blank" class="info-link">伊藤 博文</a>（いとう ひろぶみ / 1841〜1909）</span>
+          <span class="figure-role">初代内閣総理大臣</span>
+        </div>
+        <div class="figure-quote">農民出身から憲法制定・総理へ登り詰めた知勇</div>
+        <div class="figure-desc">
+          松陰の教えを受けた松下村塾生。英国留学を経て開国・近代化の必要性を痛感。明治維新後は内閣制度を創始し初代内閣総理大臣に就任（通算4度）。大日本帝国憲法の制定に中心人物として尽力し、近代日本の骨格を創り上げた。
+        </div>
+        <div class="figure-spot">📍 ゆかりの地: 伊藤博文旧宅・別邸（萩市椿東）</div>
+      </div>
+
+      <!-- 5. 森鷗外 -->
+      <div class="figure-card">
+        <div class="figure-header">
+          <span class="figure-name"><a href="https://ja.wikipedia.org/wiki/%E6%A3%AE%E9%B7%97%E5%A4%96" target="_blank" class="info-link">森 鷗外</a>（もり おうがい / 1862〜1922）</span>
+          <span class="figure-role">文豪・軍医総監</span>
+        </div>
+        <div class="figure-quote">『舞姫』『山椒大夫』『高瀬舟』を生んだ巨星</div>
+        <div class="figure-desc">
+          津和野藩医の家に生まれ、藩校「養老館」で論語やオランダ語を学ぶ。東京大学医学部を最年少で卒業後ドイツへ留学。軍医トップ（陸軍軍医総監）を務める傍ら、近代理性主義と美意識が結晶した名作文学を多数執筆した日本文学史上不滅の文豪。
+        </div>
+        <div class="figure-spot">📍 ゆかりの地: 森鷗外旧宅・記念館、<a href="https://ja.wikipedia.org/wiki/%E9%A4%8A%E8%80%81%E9%A4%A8" target="_blank" class="info-link">藩校養老館</a></div>
+      </div>
+
+      <!-- 6. 西周 -->
+      <div class="figure-card">
+        <div class="figure-header">
+          <span class="figure-name"><a href="https://ja.wikipedia.org/wiki/%E8%A5%BF%E5%91%A8_(%E5%95%93%E8%92%99%E5%AE%B6)" target="_blank" class="info-link">西 周</a>（にし あまね / 1829〜1897）</span>
+          <span class="figure-role">啓蒙思想家・近代哲学の父</span>
+        </div>
+        <div class="figure-quote">「哲学」「科学」「芸術」「理性」の言葉の生みの親</div>
+        <div class="figure-desc">
+          津和野藩医の家に生まれ養老館に学ぶ。オランダへ留学して西洋学問を体系的に修める。明治期に明六社を結成。「philosophy」を「哲学」、「science」を「科学」と訳すなど、現代の私たちが日常で使う数多くの学術語・概念語を生み出した大知識人。
+        </div>
+        <div class="figure-spot">📍 ゆかりの地: 西周旧居、<a href="https://ja.wikipedia.org/wiki/%E9%A4%8A%E8%80%81%E9%A4%A8" target="_blank" class="info-link">藩校養老館</a></div>
+      </div>
+    </div>
+
+    <!-- 鑑賞コラム -->
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 5px; padding: 6px 10px; font-size: 8.2pt; color: #334155;">
+      <strong>💡 歴史散策がもっと面白くなる鑑賞のツボ:</strong>
+      萩の「松下村塾」はわずか8畳の小部屋。ここから高杉晋作や伊藤博文ら維新の原動力が生まれた空間の狭さに驚かされます。一方、津和野の「養老館」は森鷗外や西周を育てた知の拠点。激動の「行動力（萩）」と「思索・知性（津和野）」という2つの対照的なエネルギーを感じながら歩くのが、この旅最大の醍醐味です。
+    </div>
+
+    <div class="page-footer">
+      <span>萩・津和野 プレミアム旅行ガイドブック</span>
+      <span>5 / 7 ページ</span>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ==================== PAGE 6 : 【付録２-①】萩 散策ガイドマップ（晴天A ＆ 雨天B） ==================== -->
+  <div class="page-container">
+    <h2>【付録２-①】萩 散策ガイドマップ（晴天プランA ＆ 雨天プランB）</h2>
+
+    <!-- Googleマイマップ リンクバナー -->
+    <div style="margin-bottom: 9px; background: #eff6ff; border: 1.5px solid #3b82f6; border-radius: 6px; padding: 6px 12px; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-size: 8.5pt; font-weight: bold; color: #1e3a8a;">
+        🗺️ 萩の詳細ルート＆全地点ピンをスマホで確認：
+      </span>
+      <a href="https://www.google.com/maps/d/edit?mid=1iV4ibLsKhKW1YAsF8FBohjpOyq3wrLI&amp;usp=sharing" target="_blank" style="background: #2563eb; color: #ffffff; text-decoration: none; padding: 4px 10px; border-radius: 4px; font-size: 8pt; font-weight: bold; box-shadow: 0 1px 2px rgba(0,0,0,0.15);">
+        📍 萩マイマップを開く（Google Maps） ➔
+      </a>
+    </div>
+
+    <!-- 上段：萩 晴天コース（プランA） -->
+    <div style="margin-bottom: 10px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 7px 9px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+        <h3 style="margin: 0; padding-left: 6px; font-size: 9.8pt; border-left: 4px solid #dc2626;">
+          ☀️ 【Day 1 晴天コース（プランA）】萩城下町・萩城天守閣跡・菊ヶ浜・松陰神社
+        </h3>
+        <span class="badge badge-red">赤破線: プランA巡回ルート</span>
+      </div>
+      <div style="border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden; background: #f8fafc; text-align: center;">
+        <img src="images/hagi_map_plan_a.svg" alt="萩 晴天プランA ガイドマップ" style="width: 100%; max-height: 88mm; display: block; object-fit: contain;">
+      </div>
+      <div style="margin-top: 4px; font-size: 7.4pt; color: #334155; line-height: 1.35;">
+        <strong>【晴天A 巡回順路】:</strong>
+        <strong>①</strong> ホテル長谷川(11:40) ➔ <strong>②</strong> 食堂ととと(12:15昼食) ➔ <strong>③</strong> 萩城下町(13:30) ➔ <strong>④</strong> 萩城天守閣跡(14:40) ➔ <strong>⑤</strong> 松陰神社(15:45) ➔ <strong>⑥</strong> 菊ヶ浜夕景(16:45) ➔ <strong>⑦</strong> 割烹おもしろき(18:00夕食)
+        <br><span style="color: #92400e; font-weight: bold;">※「ホテル長谷川」「食堂ととと」「割烹おもしろき」は中心街（徒歩数分圏内）に集中しています。</span>
+      </div>
+    </div>
+
+    <!-- 下段：萩 雨天コース（プランB） -->
+    <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 7px 9px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+        <h3 style="margin: 0; padding-left: 6px; font-size: 9.8pt; border-left: 4px solid #7c3aed;">
+          ☔ 【Day 1 雨天コース（プランB）】明倫学舎・萩城跡雨天散策・至誠館・海辺カフェ
+        </h3>
+        <span class="badge badge-purple">紫破線: プランB雨天ルート</span>
+      </div>
+      <div style="border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden; background: #f8fafc; text-align: center;">
+        <img src="images/hagi_map_plan_b.svg" alt="萩 雨天プランB ガイドマップ" style="width: 100%; max-height: 88mm; display: block; object-fit: contain;">
+      </div>
+      <div style="margin-top: 4px; font-size: 7.4pt; color: #334155; line-height: 1.35;">
+        <strong>【雨天B 巡回順路】:</strong>
+        <strong>①</strong> ホテル長谷川(11:40) ➔ <strong>②</strong> 食堂ととと(12:15昼食) ➔ <strong>③</strong> 萩・明倫学舎(13:30屋内) ➔ <strong>④</strong> 萩城跡散策(14:40平坦路) ➔ <strong>⑤</strong> 至誠館宝物殿(15:45屋内) ➔ <strong>⑥</strong> 海辺カフェ(16:45珈琲) ➔ <strong>⑦</strong> 割烹おもしろき(18:00夕食)
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>萩・津和野 プレミアム旅行ガイドブック</span>
+      <span>6 / 7 ページ</span>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ==================== PAGE 7 : 【付録２-②】津和野 散策ガイドマップ（晴天A ＆ 雨天B） ==================== -->
+  <div class="page-container">
+    <h2>【付録２-②】津和野 散策ガイドマップ（晴天プランA ＆ 雨天プランB）</h2>
+
+    <!-- Googleマイマップ リンクバナー -->
+    <div style="margin-bottom: 9px; background: #eff6ff; border: 1.5px solid #3b82f6; border-radius: 6px; padding: 6px 12px; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-size: 8.5pt; font-weight: bold; color: #1e3a8a;">
+        🗺️ 津和野の詳細ルート＆全地点ピンをスマホで確認：
+      </span>
+      <a href="https://www.google.com/maps/d/edit?mid=1KP3VURrtGSeVyy23vJtryjryEahYhjs&amp;usp=sharing" target="_blank" style="background: #2563eb; color: #ffffff; text-decoration: none; padding: 4px 10px; border-radius: 4px; font-size: 8pt; font-weight: bold; box-shadow: 0 1px 2px rgba(0,0,0,0.15);">
+        📍 津和野マイマップを開く（Google Maps） ➔
+      </a>
+    </div>
+
+    <!-- 上段：津和野 晴天コース（プランA） -->
+    <div style="margin-bottom: 10px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 7px 9px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+        <h3 style="margin: 0; padding-left: 6px; font-size: 9.8pt; border-left: 4px solid #2563eb;">
+          ☀️ 【Day 2 晴天コース（プランA）】殿町通り・うずめ飯・太皷谷稲成石段・城跡スタンプ・本町通り
+        </h3>
+        <span class="badge badge-blue">青破線: プランA巡回ルート</span>
+      </div>
+      <div style="border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden; background: #f8fafc; text-align: center;">
+        <img src="images/tsuwano_map_plan_a.svg" alt="津和野 晴天プランA ガイドマップ" style="width: 100%; max-height: 88mm; display: block; object-fit: contain;">
+      </div>
+      <div style="margin-top: 4px; font-size: 7.4pt; color: #334155; line-height: 1.35;">
+        <strong>【晴天A 巡回順路】:</strong>
+        <strong>①</strong> JR津和野駅(10:45) ➔ <strong>②</strong> 殿町通り散策(11:00) ➔ <strong>③</strong> 沙羅の木 うずめ飯(12:15昼食) ➔ <strong>④</strong> 太皷谷稲成神社(13:30石段263段登破) ➔ <strong>⑤</strong> リフト山麓駅城スタンプ(14:15 ※リフト不乗) ➔ <strong>⑥</strong> 本町通り老舗散策(14:45源氏巻・ざら茶) ➔ <strong>⑦</strong> 津和野駅・SLやまぐち号(16:12発)
+      </div>
+    </div>
+
+    <!-- 下段：津和野 雨天コース（プランB） -->
+    <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 7px 9px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+        <h3 style="margin: 0; padding-left: 6px; font-size: 9.8pt; border-left: 4px solid #0f766e;">
+          ☔ 【Day 2 雨天コース（プランB）】日本遺産センター・平坦参拝・城跡スタンプ・本町通り・安野光雅美術館
+        </h3>
+        <span class="badge badge-green">青緑破線: プランB雨天ルート</span>
+      </div>
+      <div style="border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden; background: #f8fafc; text-align: center;">
+        <img src="images/tsuwano_map_plan_b.svg" alt="津和野 雨天プランB ガイドマップ" style="width: 100%; max-height: 88mm; display: block; object-fit: contain;">
+      </div>
+      <div style="margin-top: 4px; font-size: 7.4pt; color: #334155; line-height: 1.35;">
+        <strong>【雨天B 巡回順路】:</strong>
+        <strong>①</strong> JR津和野駅(10:45) ➔ <strong>②</strong> 日本遺産センター(11:00屋内) ➔ <strong>③</strong> 沙羅の木 うずめ飯(12:15昼食) ➔ <strong>④</strong> 稲成神社平坦参拝(13:30) ➔ <strong>⑤</strong> リフト山麓駅城スタンプ(14:15窓口押印) ➔ <strong>⑥</strong> 本町通り庇散策(14:45) ➔ <strong>⑦</strong> 安野光雅美術館(15:15屋内) ➔ <strong>⑧</strong> 津和野駅・SLやまぐち号(16:12発)
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>萩・津和野 プレミアム旅行ガイドブック</span>
+      <span>7 / 7 ページ</span>
+    </div>
+  </div>
+
+</body>
+</html>
